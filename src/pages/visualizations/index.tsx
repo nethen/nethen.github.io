@@ -1,18 +1,14 @@
-import Image from "next/image";
 import clsx from "clsx";
 import { grid, ToggleGrid } from "./../components/ToggleGrid";
-import { motion } from "framer-motion";
 import { useWindowSize, useIsClient } from "usehooks-ts";
-import { Navbar } from "../components/Nav/Navbar";
+import { Navbar } from "./../components/Nav/Navbar";
 import Link from "next/link";
-import { useEffect } from "react";
-import { useLenis } from "lenis/react";
-import lenis from "lenis";
+import { SketchSVG } from "../components/visualizations/week2/SketchSVG";
+import { SketchJS } from "../components/visualizations/week2/SketchJS";
 
 export default function Visualizations() {
   const { width = 0 } = useWindowSize();
   const isClient = useIsClient();
-  const lenis = useLenis(() => {});
 
   return (
     <>
@@ -68,7 +64,7 @@ export default function Visualizations() {
             )}
           >
             <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-neutral-100 dark:bg-neutral-900 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
-              <svg className="w-full h-full bg-red-500"></svg>
+              <SketchSVG />
             </figure>
           </section>
           <hgroup
@@ -87,7 +83,7 @@ export default function Visualizations() {
             )}
           >
             <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-neutral-100 dark:bg-neutral-900 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
-              <svg className="w-full h-full bg-red-500"></svg>
+              <SketchJS />
             </figure>
           </section>
         </article>
