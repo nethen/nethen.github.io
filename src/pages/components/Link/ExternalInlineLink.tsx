@@ -14,10 +14,11 @@ export const ExternalInlineLink = ({
       animate="animate"
       whileHover="hover"
       variants={{
-        animate: { opacity: 0.5 },
-        hover: { opacity: 1 },
+        animate: { color: "var(--midground)" },
+        hover: { color: "var(--foreground)" },
       }}
       target="_blank"
+      className="underline"
     >
       {children}
     </motion.a>

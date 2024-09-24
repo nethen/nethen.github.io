@@ -37,7 +37,7 @@ export default function Home() {
               <h1>
                 <span className="lg:hidden">D</span> is for Data
               </h1>
-              <h2 className="opacity-50">A series of visualizations</h2>
+              <h2 className="text-midground">A series of visualizations</h2>
             </hgroup>
           </header>
           <section
@@ -76,11 +76,11 @@ export default function Home() {
             )}
           >
             <h2>About</h2>
-            <p className="opacity-50 mb-[1em]">
+            <p className="text-midground mb-[1em]">
               D is For Data is a collection of sketches made by Vancouver-based
               design engineer, Nathan Lew.
             </p>
-            <p className="opacity-50 mb-[1em]">
+            <p className="text-midground mb-[1em]">
               With agency and startup experience at{" "}
               <ExternalInlineLink href="https://invokedigital.co">
                 Invoke Digital
@@ -92,11 +92,14 @@ export default function Home() {
               , he has worked with leading automotive clients &amp; initiatives
               for social good.
             </p>
-            <p className="opacity-50">
+            <p className="text-midground">
               He is currently pursuing a Bachelor&apos;s of Science in
-              Interactive Arts &amp; Technology at Simon Fraser
-              University&mdash;specifically concentrating in interaction design
-              &amp; cross-platform development.
+              Interactive Arts &amp; Technology at{" "}
+              <ExternalInlineLink href="https://sfu.ca/siat.html">
+                Simon Fraser University
+              </ExternalInlineLink>
+              &mdash;specifically concentrating in interaction design &amp;
+              cross-platform development.
             </p>
           </section>
           <section

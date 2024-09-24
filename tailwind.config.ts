@@ -55,6 +55,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        midground: "var(--midground)",
       },
       screens: {
         "2xl": "1440px",
