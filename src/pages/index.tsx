@@ -14,11 +14,15 @@ export default function Home() {
     <>
       <ToggleGrid />
       <Navbar />
-      <main className={clsx("px-m1 lg:px-r2 h-full relative")}>
+      <main
+        className={clsx(
+          "px-m1 lg:px-r2 h-full relative flex flex-col gap-y-m2 lg:gap-y-r2"
+        )}
+      >
         <article
           className={clsx(
             grid,
-            "gap-y-m2 lg:gap-y-r2 relative pt-m2 lg:pt-r2 pb-m6 lg:mb-r6"
+            "gap-y-m2 lg:gap-y-r2 relative pt-m2 lg:pt-r2 pb-m4 lg:mb-r4"
           )}
         >
           {width >= 1024 && isClient && (
@@ -42,28 +46,21 @@ export default function Home() {
             <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-gray-100 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
               <svg className="w-full h-full bg-red-500"></svg>
             </figure>
-            <div className="absolute inset-0 bg-red-100/50 h-full flex flex-col justify-end items-center">
-              <div className="sticky bottom-r2 bg-blue-200/50 flex flex-col items-center">
+            <div className="absolute inset-0  h-full flex flex-col justify-end items-center">
+              <div className="sticky bottom-m4 lg:bottom-r2  flex flex-col items-center">
                 <Link href="/visualizations" className="">
                   <motion.div className="w-fit leading-none px-m1 py-2 lg:py-3 rounded-full bg-foreground text-background">
                     View sketch <motion.span>&rarr;</motion.span>
                   </motion.div>
                 </Link>
               </div>
-              {/* <div className="absolute inset-x-0 flex flex-col h-0 items-end">
-                <Link href="/visualizations" className="">
-                  <motion.div className="w-fit leading-none px-m1 py-2 lg:py-3 rounded-full bg-foreground text-background">
-                    View sketch <motion.span>&rarr;</motion.span>
-                  </motion.div>
-                </Link>
-              </div> */}
             </div>
           </section>
         </article>
         <article
           className={clsx(
             grid,
-            "gap-y-m2 lg:gap-y-r2 relative pt-m2 lg:pt-r2 pb-m6 lg:pb-r6"
+            "gap-y-m2 lg:gap-y-r2 relative pt-m2 lg:pt-r2 pb-m4 lg:pb-r4"
           )}
         >
           {width >= 1024 && isClient && (
