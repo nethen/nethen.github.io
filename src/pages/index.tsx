@@ -62,17 +62,25 @@ export default function Home() {
               "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2"
             )}
           >
-            <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:h-full bg-gray-100 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
+            <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-gray-100 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
               <svg className="w-full h-full bg-red-500"></svg>
             </figure>
-            <div className="col-span-full flex flex-col justify-center items-center">
-              <Link href="/visualizations" className=" sticky top-0">
-                <motion.div className="w-fit leading-none px-m1 py-2 lg:py-3 rounded-full bg-foreground text-background">
-                  View sketch <motion.span>&rarr;</motion.span>
-                </motion.div>
-              </Link>
+            <div className="absolute inset-0 bg-red-100/50 h-full flex flex-col justify-end items-center">
+              <div className="sticky bottom-0 bg-blue-200/50 flex flex-col items-center">
+                <Link href="/visualizations" className="">
+                  <motion.div className="w-fit leading-none px-m1 py-2 lg:py-3 rounded-full bg-foreground text-background">
+                    View sketch <motion.span>&rarr;</motion.span>
+                  </motion.div>
+                </Link>
+              </div>
+              {/* <div className="absolute inset-x-0 flex flex-col h-0 items-end">
+                <Link href="/visualizations" className="">
+                  <motion.div className="w-fit leading-none px-m1 py-2 lg:py-3 rounded-full bg-foreground text-background">
+                    View sketch <motion.span>&rarr;</motion.span>
+                  </motion.div>
+                </Link>
+              </div> */}
             </div>
-            <div className="absolute"></div>
           </section>
         </article>
         <article
