@@ -17,10 +17,11 @@ export const ExternalLink = ({
         animate: { color: "var(--midground)" },
         hover: { color: "var(--foreground)" },
       }}
+      transition={{ ease: circOut }}
       target="_blank"
     >
       {children}
-      <motion.div className="inline-block overflow-hidden align-bottom">
+      <motion.div className="inline-block overflow-hidden align-bottom mx-1">
         <motion.span
           className="inline-block"
           variants={{

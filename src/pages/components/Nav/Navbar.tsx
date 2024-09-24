@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { grid } from "../ToggleGrid";
-import { motion } from "framer-motion";
+import { circOut, motion } from "framer-motion";
 import { useWindowSize, useIsClient, useBoolean } from "usehooks-ts";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -39,6 +39,7 @@ export const Navbar = () => {
                 },
                 hover: { color: "var(--foreground)" },
               }}
+              transition={{ ease: circOut }}
             >
               Home
             </motion.div>
@@ -64,6 +65,7 @@ export const Navbar = () => {
                 },
                 hover: { color: "var(--foreground)" },
               }}
+              transition={{ ease: circOut }}
             >
               Visualizations
             </motion.div>

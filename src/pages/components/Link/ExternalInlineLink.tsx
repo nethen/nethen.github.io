@@ -19,6 +19,7 @@ export const ExternalInlineLink = ({
       }}
       target="_blank"
       className="underline"
+      transition={{ ease: circOut }}
     >
       {children}
     </motion.a>
