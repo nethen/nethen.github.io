@@ -29,7 +29,7 @@ const config: Config = {
           "24px",
           {
             lineHeight: "1.17em",
-            letterSpacing: "-0.02em",
+            letterSpacing: "-0.04em",
             fontWeight: "400",
           },
         ],
@@ -55,6 +55,12 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      screens: {
+        "2xl": "1440px",
+        "3xl": "1536px",
+        "4xl": "1920px",
+        "5xl": "2560px",
       },
     },
   },
