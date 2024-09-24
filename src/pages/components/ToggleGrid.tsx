@@ -2,8 +2,7 @@ import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useBoolean, useEventListener } from "usehooks-ts";
 
-export const grid =
-  "grid grid-cols-8 px-6 lg:px-12 gap-x-4 lg:gap-x-6 auto-rows-min";
+export const grid = "grid grid-cols-8 gap-x-4 lg:gap-x-6 auto-rows-min";
 
 export const ToggleGrid = () => {
   const isGridVisible = useBoolean(false);
@@ -18,7 +17,7 @@ export const ToggleGrid = () => {
     <AnimatePresence>
       {isGridVisible.value && (
         <motion.div
-          className={clsx(grid, "fixed inset-0")}
+          className={clsx(grid, "px-6 lg:px-12 fixed inset-0 !auto-rows-auto")}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

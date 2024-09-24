@@ -24,7 +24,7 @@ export default function Home() {
       <nav
         className={clsx(
           grid,
-          "col-span-full lg:col-span-3 fixed lg:sticky inset-x-0 max-lg:bottom-0 lg:top-0 py-4"
+          "px-6 lg:px-12 col-span-full lg:col-span-3 fixed lg:sticky inset-x-0 max-lg:bottom-0 lg:top-0 py-4"
         )}
       >
         <ul className="col-span-full grid grid-cols-subgrid">
@@ -36,7 +36,7 @@ export default function Home() {
           </li>
         </ul>
       </nav>
-      <main className={clsx(grid, "bg-background h-full")}>
+      <main className={clsx(grid, "px-6 lg:px-12 bg-background h-full")}>
         <header className="col-span-full grid grid-cols-subgrid">
           <h1 className="col-span-full lowercase text-center text-5xl">
             D is for Data
@@ -46,14 +46,9 @@ export default function Home() {
           </h2>
         </header>
         <section className={clsx(grid, "col-span-full bg-background h-full")}>
-          <Link
-            href="/visualizations"
-            className="col-span-full lg:col-start-2 lg:col-span-6"
-          >
-            <figure className="aspect-video bg-gray-300">
-              <svg></svg>
-            </figure>
-          </Link>
+          <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-video w-full max-h-[60svh] bg-gray-100 rounded-lg">
+            <svg></svg>
+          </figure>
           <div className="col-span-full flex flex-col justify-center items-center">
             <Link href="/visualizations" className="w-fit underline">
               View sketch
