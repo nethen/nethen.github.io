@@ -8,6 +8,47 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        "m-base": [
+          "20px",
+          {
+            lineHeight: "1.2em",
+            letterSpacing: "-0.02em",
+            fontWeight: "400",
+          },
+        ],
+        "m-lg": [
+          "48px",
+          {
+            lineHeight: "1em",
+            letterSpacing: "-0.05em",
+            fontWeight: "400",
+          },
+        ],
+        "r-base": [
+          "24px",
+          {
+            lineHeight: "1.17em",
+            letterSpacing: "-0.02em",
+            fontWeight: "400",
+          },
+        ],
+        "r-lg": [
+          "64px",
+          {
+            lineHeight: "0.875em",
+            letterSpacing: "-0.05em",
+            fontWeight: "400",
+          },
+        ],
+      },
+      spacing: {
+        m1: "0.9em",
+        m2: "1.8em",
+        m4: "3.6em",
+        m6: "5.4em",
+        r1: "1.75em",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useBoolean, useEventListener } from "usehooks-ts";
 
-export const grid = "grid grid-cols-8 gap-x-4 lg:gap-x-6 auto-rows-min";
+export const grid = "grid grid-cols-8 gap-x-4 lg:gap-x-r1 auto-rows-min";
 
 export const ToggleGrid = () => {
   const isGridVisible = useBoolean(false);
