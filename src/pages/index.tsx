@@ -25,6 +25,16 @@ export default function Home() {
           <li className="col-span-4 lg:col-span-2">
             <Link href="/visualizations">Visualizations</Link>
           </li>
+          {width >= 1024 && isClient && (
+            <li className="lg:-col-start-1 lg:text-right">
+              <a
+                href="https://github.com/nethen/nethen.github.io"
+                target="_blank"
+              >
+                Github
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
       <main className={clsx("px-m1 lg:px-r2 h-full relative")}>
@@ -84,8 +94,8 @@ export default function Home() {
             <hgroup className="col-span-full lg:col-span-4 2xl:col-span-3 4xl:col-span-2">
               <h2>About</h2>
               <p className="opacity-50 mb-[1em]">
-                D is For Data is a collection of sketches made by Canadian
-                design engineer, Nathan Lew.
+                D is For Data is a collection of sketches made by
+                Vancouver-based design engineer, Nathan Lew.
               </p>
               <p className="opacity-50 mb-[1em]">
                 With agency and startup experience at Invoke Digital and Guusto
