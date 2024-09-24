@@ -5,7 +5,11 @@ export const ScrollContainer = ({
 }: {
   children: React.ReactNode;
 }) => {
-  return <ReactLenis root>{children}</ReactLenis>;
+  return (
+    <ReactLenis root options={{ wheelMultiplier: 0.75 }}>
+      {children}
+    </ReactLenis>
+  );
 };
 
 export default ScrollContainer;
