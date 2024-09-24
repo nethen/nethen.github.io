@@ -1,25 +1,11 @@
 import Image from "next/image";
-import localFont from "next/font/local";
 import Link from "next/link";
 import clsx from "clsx";
 import { grid, ToggleGrid } from "./components/ToggleGrid";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)]`}
-    >
+    <>
       <ToggleGrid />
       <nav
         className={clsx(
@@ -38,12 +24,10 @@ export default function Home() {
       </nav>
       <main className={clsx(grid, "px-6 lg:px-12 bg-background h-full")}>
         <header className="col-span-full grid grid-cols-subgrid">
-          <h1 className="col-span-full lowercase text-center text-5xl">
-            D is for Data
-          </h1>
-          <h2 className="col-span-full lowercase text-center text-5xl opacity-50">
-            A series of visualizations
-          </h2>
+          <hgroup className="col-span-full lowercase text-center text-5xl font-normal">
+            <h1>D is for Data</h1>
+            <h2 className="opacity-50">A series of visualizations</h2>
+          </hgroup>
         </header>
         <section className={clsx(grid, "col-span-full bg-background h-full")}>
           <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-video w-full max-h-[60svh] bg-gray-100 rounded-lg">
@@ -103,6 +87,6 @@ export default function Home() {
           </a>
         </footer>
       </main>
-    </div>
+    </>
   );
 }
