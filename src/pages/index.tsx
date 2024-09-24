@@ -5,6 +5,8 @@ import { grid, ToggleGrid } from "./components/ToggleGrid";
 import { motion } from "framer-motion";
 import { useWindowSize, useIsClient } from "usehooks-ts";
 import { Navbar } from "./components/Nav/Navbar";
+import { ExternalLink } from "./components/Link/ExternalLink";
+import ExternalInlineLink from "./components/Link/ExternalInlineLink";
 
 export default function Home() {
   const { width = 0 } = useWindowSize();
@@ -79,9 +81,16 @@ export default function Home() {
               design engineer, Nathan Lew.
             </p>
             <p className="opacity-50 mb-[1em]">
-              With agency and startup experience at Invoke Digital and Guusto
-              Gifts, he has worked with leading automotive clients &amp;
-              initiatives for social good.
+              With agency and startup experience at{" "}
+              <ExternalInlineLink href="https://invokedigital.co">
+                Invoke Digital
+              </ExternalInlineLink>{" "}
+              and{" "}
+              <ExternalInlineLink href="https://guusto.com">
+                Guusto Gifts
+              </ExternalInlineLink>
+              , he has worked with leading automotive clients &amp; initiatives
+              for social good.
             </p>
             <p className="opacity-50">
               He is currently pursuing a Bachelor&apos;s of Science in
@@ -98,29 +107,25 @@ export default function Home() {
             <h2>Stack</h2>
             <ul>
               <li>
-                <a href="https://nextjs.org/" target="_blank">
-                  Next.js
-                </a>
+                <ExternalLink href="https://nextjs.org/">Next.js</ExternalLink>
               </li>
               <li>
-                <a href="https://react.dev" target="_blank">
-                  React.js
-                </a>
+                <ExternalLink href="https://react.dev">React.js</ExternalLink>
               </li>
               <li>
-                <a href="https://framer.com/motion" target="_blank">
+                <ExternalLink href="https://framer.com/motion">
                   Framer Motion
-                </a>
+                </ExternalLink>
               </li>
               <li>
-                <a href="https://www.npmjs.com/package/clsx" target="_blank">
+                <ExternalLink href="https://www.npmjs.com/package/clsx">
                   clsx
-                </a>
+                </ExternalLink>
               </li>
               <li>
-                <a href="https://lenis.darkroom.engineering" target="_blank">
+                <ExternalLink href="https://lenis.darkroom.engineering">
                   Lenis Scroll
-                </a>
+                </ExternalLink>
               </li>
             </ul>
           </section>
@@ -132,14 +137,14 @@ export default function Home() {
             <h2>Contact</h2>
             <ul>
               <li>
-                <a href="mailto:nathan_lew@sfu.ca" target="_blank">
+                <ExternalLink href="mailto:nathan_lew@sfu.ca">
                   nathan_lew&#64;sfu.ca
-                </a>
+                </ExternalLink>
               </li>
               <li>
-                <a href="https://linkedin.com/in/nathan-lew" target="_blank">
+                <ExternalLink href="https://linkedin.com/in/nathan-lew">
                   linkedin.com/in/nathan-lew
-                </a>
+                </ExternalLink>
               </li>
             </ul>
           </section>
