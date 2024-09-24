@@ -47,7 +47,10 @@ const config: Config = {
         m2: "1.8em",
         m4: "3.6em",
         m6: "5.4em",
-        r1: "1.75em",
+        r1: "0.875em",
+        r2: "1.75em",
+        r4: "3.5em",
+        r6: "5.25em",
       },
       colors: {
         background: "var(--background)",
