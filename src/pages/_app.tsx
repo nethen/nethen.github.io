@@ -26,12 +26,12 @@ const symbol = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    // <ScrollContainer>
-    <div
-      className={`${symbol.variable} font-[family-name:var(--font-bst-symbol)]`}
-    >
-      <Component {...pageProps} />
-    </div>
-    // </ScrollContainer>
+    <ScrollContainer>
+      <div
+        className={`${symbol.variable} font-[family-name:var(--font-bst-symbol)]`}
+      >
+        <Component {...pageProps} />
+      </div>
+    </ScrollContainer>
   );
 }

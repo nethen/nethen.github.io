@@ -43,7 +43,7 @@ export default function Home() {
               "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2"
             )}
           >
-            <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-gray-100 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
+            <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-neutral-100 dark:bg-neutral-900 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
               <svg className="w-full h-full bg-red-500"></svg>
             </figure>
             <div className="absolute inset-0  h-full flex flex-col justify-end items-center">
@@ -83,7 +83,7 @@ export default function Home() {
               Gifts, he has worked with leading automotive clients &amp;
               initiatives for social good.
             </p>
-            <p className="opacity-50 mb-[1em]">
+            <p className="opacity-50">
               He is currently pursuing a Bachelor&apos;s of Science in
               Interactive Arts &amp; Technology at Simon Fraser
               University&mdash;specifically concentrating in interaction design

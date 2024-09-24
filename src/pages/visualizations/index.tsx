@@ -5,10 +5,14 @@ import { motion } from "framer-motion";
 import { useWindowSize, useIsClient } from "usehooks-ts";
 import { Navbar } from "../components/Nav/Navbar";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useLenis } from "lenis/react";
+import lenis from "lenis";
 
 export default function Visualizations() {
   const { width = 0 } = useWindowSize();
   const isClient = useIsClient();
+  const lenis = useLenis(() => {});
 
   return (
     <>
@@ -26,17 +30,31 @@ export default function Visualizations() {
               <h2 className="text-m-lg lg:text-r-lg">01</h2>
               <ul className="">
                 <li>
-                  <Link href="#1a">Javascript</Link>
+                  <Link
+                    href="#sketch-1a"
+                    // onClick={() => {
+                    //   lenis?.scrollTo("#sketch-1a");
+                    // }}
+                  >
+                    Javascript
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#1b">Pure SVG</Link>
+                  <Link
+                    href="#sketch-1b"
+                    // onClick={() => {
+                    //   lenis?.scrollTo("sketch-1b");
+                    // }}
+                  >
+                    Pure SVG
+                  </Link>
                 </li>
               </ul>
             </nav>
           )}
           <hgroup
             className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
-            id="1a"
+            id="sketch-1a"
           >
             <h2>Naps taken over Week 1</h2>
             <h3 className="opacity-50">Made with SVG elements</h3>
@@ -49,13 +67,13 @@ export default function Visualizations() {
               "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2 lg:mb-r4"
             )}
           >
-            <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-gray-100 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
+            <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-neutral-100 dark:bg-neutral-900 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
               <svg className="w-full h-full bg-red-500"></svg>
             </figure>
           </section>
           <hgroup
             className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
-            id="1b"
+            id="sketch-1b"
           >
             <h2>Naps taken over Week 1</h2>
             <h3 className="opacity-50">Made with SVG elements</h3>
@@ -68,7 +86,7 @@ export default function Visualizations() {
               "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2 lg:mb-r6"
             )}
           >
-            <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-gray-100 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
+            <figure className="col-span-full lg:col-start-2 lg:col-span-6 aspect-square lg:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full bg-neutral-100 dark:bg-neutral-900 rounded-3xl flex flex-col justify-center items-center p-m1 lg:p-r2">
               <svg className="w-full h-full bg-red-500"></svg>
             </figure>
           </section>
