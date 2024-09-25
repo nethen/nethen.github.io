@@ -1,7 +1,7 @@
 import { useIsClient, useWindowSize } from "usehooks-ts";
 
 export const SketchSVG = () => {
-  const { width = 0 } = useWindowSize();
+  const { width } = useWindowSize();
   const isClient = useIsClient();
   return (
     <svg
@@ -23,19 +23,35 @@ export const SketchSVG = () => {
         // preserveAspectRatio="none"
         preserveAspectRatio="xMinYMin meet"
       >
-        {[840, 760, 680, 600, 520, 440, 360, 280, 200, 120].map((y, i) => (
-          <text
-            x="100%"
-            y={`${3.84 + 10.2 * i}%`}
-            fill="black"
-            textAnchor="end"
-            alignmentBaseline="middle"
-            className="text-[max(16px,min(2vh,3vw))] opacity-50"
-            key={`w2a-time-${9 - i}`}
-          >
-            {0.5 * (9 - i)}hr
-          </text>
-        ))}
+        {[840, 760, 680, 600, 520, 440, 360, 280, 200, 120].map((y, i) =>
+          isClient && width >= 640 ? (
+            <text
+              x="100%"
+              y={`${3.84 + 10.2 * i}%`}
+              fill="black"
+              textAnchor="end"
+              alignmentBaseline="middle"
+              className="text-[max(16px,min(2vh,3vw))] opacity-50"
+              key={`w2a-time-${9 - i}`}
+            >
+              {0.5 * (9 - i)}hr
+            </text>
+          ) : (9 - i) % 2 == 1 ? (
+            <text
+              x="100%"
+              y={`${3.84 + 10.2 * i}%`}
+              fill="black"
+              textAnchor="end"
+              alignmentBaseline="middle"
+              className="text-[max(16px,min(2vh,3vw))] opacity-50"
+              key={`w2a-time-${9 - i}`}
+            >
+              {0.5 * (9 - i)}hr
+            </text>
+          ) : (
+            <></>
+          )
+        )}
       </svg>
       <svg
         width="77%"
