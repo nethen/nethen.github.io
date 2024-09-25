@@ -53,10 +53,13 @@ export default function Visualizations() {
             id="sketch-1a"
           >
             <h2>Naps taken over Week 1</h2>
-            <h3 className="opacity-50">Made with SVG elements</h3>
+            {/* <h3 className="opacity-50">Made with SVG elements</h3> */}
           </hgroup>
-          <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2">
-            col-span-full lg:col-span-4 2xl:col-span-3 4xl:col-span-2
+          <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
+            A nice review of the SVG coordinate system and elements. A notable
+            challenge was preventing distortion of elements when the viewport
+            was resized. Fixes involved a mix of relative units (%) and
+            alignment using the preserveAspectRatio attribute.
           </p>
           <section
             className={clsx(

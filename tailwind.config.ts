@@ -28,7 +28,7 @@ const config: Config = {
         "r-base": [
           "24px",
           {
-            lineHeight: "1.17em",
+            lineHeight: "1.1667em",
             letterSpacing: "-0.04em",
             fontWeight: "400",
           },
@@ -43,14 +43,14 @@ const config: Config = {
         ],
       },
       spacing: {
-        m1: "0.9em",
-        m2: "1.8em",
-        m4: "3.6em",
-        m6: "5.4em",
-        r1: "0.875em",
-        r2: "1.75em",
-        r4: "3.5em",
-        r6: "5.25em",
+        m1: "0.9rem",
+        m2: "1.8rem",
+        m4: "3.6rem",
+        m6: "5.4rem",
+        r1: "1.75rem",
+        r2: "3.5rem",
+        r4: "7rem",
+        r6: "10.5rem",
       },
       colors: {
         background: "var(--background)",
