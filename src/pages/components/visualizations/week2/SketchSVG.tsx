@@ -1,74 +1,119 @@
+import { useIsClient, useWindowSize } from "usehooks-ts";
+
 export const SketchSVG = () => {
+  const { width = 0 } = useWindowSize();
+  const isClient = useIsClient();
   return (
     <svg
-      width="1920"
-      height="1080"
-      viewBox="0 0 1920 1080"
+      // width="1080"
+      // height="1080"
+      // viewBox="0 0 1080 1080"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-full"
-      preserveAspectRatio="xMidYMid slice"
+      // preserveAspectRatio="none"
+      className="w-full h-full bg-blue-500 rounded-lg"
     >
-      <rect width="1920" height="1080" fill="white" />
-      <text
-        fill="black"
-        textAnchor="middle"
-        alignmentBaseline="middle"
-        x="1028"
-        y="1000"
+      <rect fill="white" width="100%" height="100%" />
+      <svg
+        x="0"
+        y="8.33%"
+        width="16.2%"
+        height="72.2%"
+        // viewBox="0 0 176 780"
+        // preserveAspectRatio="none"
+        preserveAspectRatio="xMinYMin meet"
       >
-        Day
-      </text>
-      <text
-        fill="black"
-        textAnchor="middle"
-        alignmentBaseline="middle"
-        transform="translate(80, 536) rotate(-90)"
-      >
-        Duration napped (hrs)
-      </text>
-      <path opacity="0.3" d="M200 896L1856 896" stroke="black" />
-      <path opacity="0.3" d="M200 816L1856 816" stroke="black" />
-      <path opacity="0.3" d="M200 736L1856 736" stroke="black" />
-      <path opacity="0.3" d="M200 656L1856 656" stroke="black" />
-      <path opacity="0.3" d="M200 576L1856 576" stroke="black" />
-      <path opacity="0.3" d="M200 496L1856 496" stroke="black" />
-      <path opacity="0.3" d="M200 416L1856 416" stroke="black" />
-      <path opacity="0.3" d="M200 336L1856 336" stroke="black" />
-      <path opacity="0.3" d="M200 256L1856 256" stroke="black" />
-      <path opacity="0.3" d="M200 176L1856 176" stroke="black" />
-      <path
-        d="M328 256L608 856L888 176L1168 776L1448 256L1728 856"
-        stroke="#127175"
-        stroke-width="4"
-        stroke-linecap="round"
-      />
-      {[176, 256, 336, 416, 496, 576, 656, 736, 816, 896]
-        .reverse()
-        .map((y, i) => (
+        {[840, 760, 680, 600, 520, 440, 360, 280, 200, 120].map((y, i) => (
           <text
-            x="160"
-            y={y}
+            x="100%"
+            y={`${3.84 + 10.2 * i}%`}
             fill="black"
-            textAnchor="middle"
+            textAnchor="end"
             alignmentBaseline="middle"
-            // transform="rotate()"
+            className="text-[max(16px,min(2vh,3vw))] opacity-50"
+            key={`w2a-time-${9 - i}`}
           >
-            {i * 0.5}
+            {0.5 * (9 - i)}hr
           </text>
         ))}
-      {[12, 13, 14, 15, 16, 17].map((y, i) => (
+      </svg>
+      <svg
+        width="77%"
+        height="66%"
+        x="18%"
+        y="11%"
+        viewBox="0 0 840 720"
+        preserveAspectRatio="none"
+      >
+        <g opacity="0.5" stroke="black">
+          {Array.from({ length: 10 }, (_, i) => (
+            <path d={`M0 ${80 * i} H840`} key={`w2a-gridline-${i}`} />
+          ))}
+        </g>
+        <g fill="#99d8c9">
+          <rect y="80" width="120" height="640" />
+          <rect x="144" y="680" width="120" height="40" />
+          <rect x="288" width="120" height="720" />
+          <rect x="432" y="600" width="120" height="120" />
+          <rect x="576" y="80" width="120" height="640" />
+          <rect x="720" y="680" width="120" height="40" />
+        </g>
+      </svg>
+      <svg
+        width="77%"
+        height="5%"
+        x="18%"
+        y="83%"
+        // preserveAspectRatio="xMinYMin meet"
+      >
+        {[12, 13, 14, 15, 16, 17].map((d, i) => (
+          <text
+            // fill="red"
+            fill="black"
+            x={`${7.7 + 17.15 * i}%`}
+            y="0"
+            textAnchor="middle"
+            alignmentBaseline="text-before-edge"
+            key={`w2a-day-sept-${i}`}
+            className="text-[max(16px,min(2vh,3vw))] opacity-50"
+          >
+            {isClient && width >= 640 ? "Sept" : ""} {d}
+          </text>
+        ))}
+      </svg>
+      <svg
+        width="77%"
+        // height=""
+        x="18%"
+        y="90%"
+        // preserveAspectRatio="xMinYMin meet"
+      >
         <text
-          x={328 + 280 * i}
-          y={930}
           fill="black"
+          x="50%"
+          y="0"
           textAnchor="middle"
-          alignmentBaseline="middle"
-          className="text-m-base"
+          alignmentBaseline="text-before-edge"
+          className="text-[max(16px,min(2vh,3vw))]"
         >
-          {"Sept " + y}
+          Day
         </text>
-      ))}
+      </svg>
+      {isClient && width >= 640 && (
+        <svg width="8.33%" height="72.2%" x="0%" y="8.33%">
+          <text
+            fill="black"
+            transform="rotate(-90)"
+            textAnchor="middle"
+            x="50%"
+            y="50%"
+            alignmentBaseline="middle"
+            className="text-[max(16px,min(2vh,3vw))] origin-center"
+          >
+            Duration
+          </text>
+        </svg>
+      )}
     </svg>
   );
 };
