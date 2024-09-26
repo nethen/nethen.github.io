@@ -1,20 +1,20 @@
-import { useRef, useState } from "react";
-import { useIsClient, useCounter } from "usehooks-ts";
+import { useEffect, useRef, useState } from "react";
+import { useIsClient, useCounter, useWindowSize } from "usehooks-ts";
 import {
   AnimatePresence,
   motion,
   useInView,
-  // useMotionValue,
-  // useTransform,
+  useMotionValue,
+  useTransform,
 } from "framer-motion";
-// import { useMousePosition } from "./../../contexts/useMousePosition";
+import { useMousePosition } from "./../../contexts/useMousePosition";
 
 export const SketchJS = () => {
   const isClient = useIsClient();
-  // const { width = 0, height = 0 } = useWindowSize();
+  const { width = 0, height = 0 } = useWindowSize();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  // const mousePosition = useMousePosition();
+  const mousePosition = useMousePosition();
   const mode = useCounter(0);
 
   const colors = {
@@ -46,23 +46,23 @@ export const SketchJS = () => {
     }))
   );
 
-  // const x = useMotionValue(0);
-  // const y = useMotionValue(0);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-  // useEffect(() => {
-  //   x.set(mousePosition.x);
-  //   y.set(mousePosition.y);
-  // }, [mousePosition, x, y]);
+  useEffect(() => {
+    x.set(mousePosition.x);
+    y.set(mousePosition.y);
+  }, [mousePosition, x, y]);
 
-  // const offsetPx = {
-  //   x: useTransform(x, [0, width], [-10, 10]),
-  //   y: useTransform(y, [0, height], [-10, 10]),
-  // };
+  const offsetPx = {
+    x: useTransform(x, [0, width], [-10, 10]),
+    y: useTransform(y, [0, height], [-10, 10]),
+  };
 
-  // const offsetRel = {
-  //   x: useTransform(x, [0, width], [0, 100]),
-  //   y: useTransform(y, [0, height], [0, 100]),
-  // };
+  const offsetRel = {
+    x: useTransform(x, [0, width], [0, 100]),
+    y: useTransform(y, [0, height], [0, 100]),
+  };
 
   return (
     <svg
@@ -102,15 +102,15 @@ export const SketchJS = () => {
                 cy: pos.y + "%",
               }}
               animate={{
-                // r: isInView
-                //   ? Math.abs(pos.x - offsetRel.x.get()) < 20 &&
-                //     Math.abs(pos.y - offsetRel.y.get()) < 20
-                //     ? pos.size
-                //     : pos.size / 2
-                //   : 0,
-                r: pos.size,
-                // x: offsetPx.x.get(),
-                // y: offsetPx.y.get(),
+                r: isInView
+                  ? Math.abs(pos.x - offsetRel.x.get()) < 20 &&
+                    Math.abs(pos.y - offsetRel.y.get()) < 20
+                    ? pos.size
+                    : pos.size / 2
+                  : 0,
+                // r: pos.size,
+                x: offsetPx.x.get(),
+                y: offsetPx.y.get(),
                 fill: colors.fore[mode.count],
                 cx: pos.x + "%",
                 cy: pos.y + "%",
