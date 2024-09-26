@@ -1,24 +1,24 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
-import { ScrollContainer } from "./components/Scroll/ScrollContext";
-import { Layout } from "./components/Layout/Layout";
+import { ScrollContainer } from "../components/Scroll/ScrollContext";
+import { Layout } from "../components/Layout/Layout";
 // import { MousePositionProvider } from "./components/contexts/useMousePosition";
 
 const symbol = localFont({
   src: [
     {
-      path: "./fonts/BST-Symbol-Light-Trial.woff",
+      path: "../fonts/BST-Symbol-Light-Trial.woff",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/BST-Symbol-Regular-Trial.woff",
+      path: "../fonts/BST-Symbol-Regular-Trial.woff",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/BST-Symbol-Bold-Trial.woff",
+      path: "../fonts/BST-Symbol-Bold-Trial.woff",
       weight: "700",
       style: "normal",
     },

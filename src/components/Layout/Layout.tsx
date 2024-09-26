@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import ToggleGrid from "../ToggleGrid";
+import ToggleGrid from "../Grid/ToggleGrid";
 import Navbar from "../Nav/Navbar";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {

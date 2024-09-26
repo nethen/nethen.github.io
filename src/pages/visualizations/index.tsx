@@ -1,11 +1,11 @@
 import Head from "next/head";
 import clsx from "clsx";
-import { grid } from "./../components/ToggleGrid";
+import { grid } from "@/components/Grid/ToggleGrid";
 import { useWindowSize, useIsClient } from "usehooks-ts";
 import Link from "next/link";
-import { SketchSVG } from "../components/visualizations/week2/SketchSVG";
-import { SketchJS } from "../components/visualizations/week2/SketchJS";
-import Figure from "../components/Layout/Figure";
+import { SketchSVG } from "@/components/visualizations/week2/SketchSVG";
+import { SketchJS } from "@/components/visualizations/week2/SketchJS";
+import Figure from "@/components/Layout/Figure";
 import { useEffect } from "react";
 import { useLenis } from "lenis/react";
 

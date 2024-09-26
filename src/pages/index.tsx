@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 import clsx from "clsx";
-import { grid } from "./components/ToggleGrid";
+import { grid } from "@/components/Grid/ToggleGrid";
 import { motion } from "framer-motion";
 import { useWindowSize, useIsClient } from "usehooks-ts";
-import { ExternalLink } from "./components/Link/ExternalLink";
-import ExternalInlineLink from "./components/Link/ExternalInlineLink";
-import { Figure } from "./components/Layout/Figure";
-import { SketchSVG } from "./components/visualizations/week2/SketchSVG";
+import { ExternalLink } from "@/components/Link/ExternalLink";
+import ExternalInlineLink from "@/components/Link/ExternalInlineLink";
+import { Figure } from "@/components/Layout/Figure";
+import { SketchSVG } from "@/components/visualizations/week2/SketchSVG";
 import { useEffect } from "react";
 import { useLenis } from "lenis/react";
 

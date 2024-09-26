@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { grid } from "../ToggleGrid";
+import { grid } from "@/components/Grid/ToggleGrid";
 import { circOut, motion } from "framer-motion";
 import { useWindowSize, useIsClient, useBoolean } from "usehooks-ts";
 import Link from "next/link";
