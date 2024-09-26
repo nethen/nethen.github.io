@@ -23,7 +23,7 @@ export default function Home() {
         <article
           className={clsx(
             grid,
-            "gap-y-m2 lg:gap-y-r2 relative pt-m2 lg:pt-r2 pb-m4 lg:mb-r4"
+            "gap-y-m2 lg:gap-y-r2 relative pt-m1 lg:pt-r1 pb-m4 lg:mb-r4"
           )}
         >
           {width >= 1024 && isClient && (
@@ -61,7 +61,7 @@ export default function Home() {
         <article
           className={clsx(
             grid,
-            "gap-y-m2 lg:gap-y-r2 relative pt-m2 lg:pt-r2 pb-m4 lg:pb-r4"
+            "gap-y-m2 lg:gap-y-r2 relative pb-m4 pt-m1 lg:pt-r1 lg:pb-r4"
           )}
         >
           {width >= 1024 && isClient && (

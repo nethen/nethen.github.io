@@ -18,7 +18,7 @@ export default function Visualizations() {
         <article
           className={clsx(
             grid,
-            "gap-y-m2 lg:gap-y-r2 relative pt-m2 lg:pt-r2 pb-m6 lg:mb-r4"
+            "gap-y-m2 lg:gap-y-r2 relative pt-m1 lg:pt-r1 pb-m6 lg:mb-r4"
           )}
         >
           {width >= 1024 && isClient && (
