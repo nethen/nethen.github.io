@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
 import { ScrollContainer } from "./components/Scroll/ScrollContext";
+import { Layout } from "./components/Layout/Layout";
 
 const symbol = localFont({
   src: [
@@ -30,7 +31,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <div
         className={`${symbol.variable} font-[family-name:var(--font-bst-symbol)]`}
       >
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </div>
     </ScrollContainer>
   );
