@@ -1,20 +1,13 @@
 import { useRef, useState } from "react";
-import { useIsClient, useWindowSize } from "usehooks-ts";
-import {
-  AnimatePresence,
-  circInOut,
-  circOut,
-  motion,
-  useInView,
-} from "framer-motion";
+import { useIsClient } from "usehooks-ts";
+import { AnimatePresence, circOut, motion, useInView } from "framer-motion";
 
 export const SketchJS = () => {
-  const { width } = useWindowSize();
   const isClient = useIsClient();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const [positions, setPositions] = useState(
+  const [positions] = useState(
     new Array(100).fill(0).map(() => ({
       x: Math.random() * 100,
       y: Math.random() * 100,

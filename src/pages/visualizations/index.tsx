@@ -17,7 +17,7 @@ export default function Visualizations() {
 
   useEffect(() => {
     lenis?.scrollTo(0, { immediate: true, force: true });
-  }, []);
+  }, [lenis]);
 
   return (
     <>
@@ -88,7 +88,7 @@ export default function Visualizations() {
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="sketch-1b"
         >
-          <h2>Dippin' Dots</h2>
+          <h2>Dippin Dots</h2>
         </hgroup>
         <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
           Randomly generated circles. All movements supported by Framer Motion.
