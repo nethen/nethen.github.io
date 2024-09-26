@@ -14,7 +14,7 @@ export const SketchSVG = () => {
       <svg
         x="0"
         y="11.33%"
-        width="16.2%"
+        width="12.5%"
         height="72.2%"
         preserveAspectRatio="xMinYMin meet"
       >
@@ -48,7 +48,7 @@ export const SketchSVG = () => {
           )
         )}
       </svg>
-      <svg width="77%" height="5%" x="18%" y="83%">
+      <svg width="80%" height="5%" x="15%" y="83%">
         {[
           { day: "Thu", n: 12 },
           { day: "Fri", n: 13 },
@@ -87,7 +87,7 @@ export const SketchSVG = () => {
           I tend to nap more every other day
         </text>
       </svg>
-      <svg width="77%" x="18%" y="90%">
+      <svg width="80%" x="15%" y="90%">
         <text
           fill="var(--foreground)"
           x="50%"
@@ -117,9 +117,9 @@ export const SketchSVG = () => {
       {/* LABELS -- END */}
       {/* GRIDLINES -- START */}
       <svg
-        width="77%"
+        width="80%"
         height="66%"
-        x="18%"
+        x="15%"
         y="14%"
         viewBox="0 0 840 720"
         preserveAspectRatio="none"
