@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import localFont from "next/font/local";
 import { ScrollContainer } from "./components/Scroll/ScrollContext";
 import { Layout } from "./components/Layout/Layout";
+import { MousePositionProvider } from "./components/contexts/useMousePosition";
 
 const symbol = localFont({
   src: [
@@ -28,13 +29,15 @@ const symbol = localFont({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ScrollContainer>
-      <div
-        className={`${symbol.variable} font-[family-name:var(--font-bst-symbol)]`}
-      >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </div>
+      <MousePositionProvider>
+        <div
+          className={`${symbol.variable} font-[family-name:var(--font-bst-symbol)]`}
+        >
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </div>
+      </MousePositionProvider>
     </ScrollContainer>
   );
 }

@@ -1,11 +1,14 @@
-import { useRef, useState } from "react";
-import { useIsClient } from "usehooks-ts";
+import { use, useRef, useState } from "react";
+import { useIsClient, useWindowSize } from "usehooks-ts";
 import { AnimatePresence, circOut, motion, useInView } from "framer-motion";
+import { useMousePosition } from "../../contexts/useMousePosition";
 
 export const SketchJS = () => {
   const isClient = useIsClient();
+  const { width = 0 } = useWindowSize();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const mousePosition = useMousePosition();
 
   const [positions] = useState(
     new Array(100).fill(0).map(() => ({
@@ -23,6 +26,16 @@ export const SketchJS = () => {
       // viewBox="0 0 1080 1080"
     >
       <rect fill="var(--background)" width="100%" height="100%" />
+      {width >= 640 && (
+        <text
+          alignmentBaseline="text-before-edge"
+          x="0"
+          y="0"
+          fill="var(--foreground)"
+        >
+          {mousePosition ? `x: ${mousePosition.x}` : "null"}
+        </text>
+      )}
       <AnimatePresence>
         {isClient &&
           positions.map((pos, i) => (
