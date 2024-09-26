@@ -57,7 +57,7 @@ export default function Visualizations() {
                 <Link href="#sketch-1a">SVG</Link>
               </li>
               <li>
-                <Link href="#sketch-1b">JS/Canvas</Link>
+                <Link href="#sketch-1b">JS</Link>
               </li>
             </ul>
           </nav>
