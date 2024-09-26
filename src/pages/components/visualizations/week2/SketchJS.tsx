@@ -7,7 +7,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import { useMousePosition } from "../../contexts/useMousePosition";
+import { useMousePosition } from "./../../contexts/useMousePosition";
 
 export const SketchJS = () => {
   const isClient = useIsClient();
@@ -52,7 +52,7 @@ export const SketchJS = () => {
   useEffect(() => {
     x.set(mousePosition.x);
     y.set(mousePosition.y);
-  }, [mousePosition]);
+  }, [mousePosition, x, y]);
 
   const offsetPx = {
     x: useTransform(x, [0, width], [-10, 10]),
