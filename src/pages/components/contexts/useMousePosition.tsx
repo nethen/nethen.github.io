@@ -6,14 +6,17 @@ type MousePosition = {
   y: number;
 };
 
-export const MousePositionContext = createContext<MousePosition | null>(null);
+export const MousePositionContext = createContext<MousePosition>({
+  x: -1,
+  y: -1,
+});
 
 export const MousePositionProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [mousePosition, setMousePosition] = useState<MousePosition | null>({
+  const [mousePosition, setMousePosition] = useState<MousePosition>({
     x: 0,
     y: 0,
   });
