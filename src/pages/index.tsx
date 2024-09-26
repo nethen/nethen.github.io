@@ -134,8 +134,18 @@ export default function Home() {
               <ExternalLink href="https://react.dev">React.js</ExternalLink>
             </li>
             <li>
+              <ExternalLink href="https://tailwindcss.com">
+                Tailwind CSS
+              </ExternalLink>
+            </li>
+            <li>
               <ExternalLink href="https://framer.com/motion">
                 Framer Motion
+              </ExternalLink>
+            </li>
+            <li>
+              <ExternalLink href="https://usehooks-ts.com">
+                useHooks-ts
               </ExternalLink>
             </li>
             <li>
