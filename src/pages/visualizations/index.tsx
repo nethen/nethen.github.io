@@ -88,10 +88,12 @@ export default function Visualizations() {
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="sketch-1b"
         >
-          <h2>Dippin Dots</h2>
+          <h2>Chameleon Skin</h2>
         </hgroup>
         <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
-          Randomly generated circles. All movements supported by Framer Motion.
+          Randomly generated mouse-reactive circles, each enlarging based on the
+          cursor relative to the screen. Click inside to recolour and update the
+          texture. All movements are controlled by Framer Motion.
         </p>
         <section
           className={clsx(
