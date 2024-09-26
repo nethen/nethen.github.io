@@ -17,7 +17,7 @@ export default function Visualizations() {
 
   useEffect(() => {
     lenis?.scrollTo(0, { immediate: true, force: true });
-  });
+  }, []);
 
   return (
     <>
@@ -54,24 +54,10 @@ export default function Visualizations() {
             <h2 className="text-m-lg lg:text-r-lg">01</h2>
             <ul className="">
               <li>
-                <Link
-                  href="#sketch-1a"
-                  // onClick={() => {
-                  //   lenis?.scrollTo("#sketch-1a");
-                  // }}
-                >
-                  Javascript
-                </Link>
+                <Link href="#sketch-1a">SVG</Link>
               </li>
               <li>
-                <Link
-                  href="#sketch-1b"
-                  // onClick={() => {
-                  //   lenis?.scrollTo("sketch-1b");
-                  // }}
-                >
-                  Pure SVG
-                </Link>
+                <Link href="#sketch-1b">JS/Canvas</Link>
               </li>
             </ul>
           </nav>
