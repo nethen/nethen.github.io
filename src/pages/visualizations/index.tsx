@@ -46,7 +46,7 @@ export default function Visualizations() {
       <article
         className={clsx(
           grid,
-          "gap-y-m2 lg:gap-y-r2 relative pt-m1 lg:pt-r1 pb-m6 lg:mb-r4"
+          "gap-y-m2 lg:gap-y-r2 relative pt-m1 lg:pt-r1 pb-m6 lg:mb-0"
         )}
       >
         {width >= 1024 && isClient && (
@@ -88,15 +88,14 @@ export default function Visualizations() {
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="sketch-1b"
         >
-          <h2>Naps taken over Week 1</h2>
-          <h3 className="opacity-50">Made with SVG elements</h3>
+          <h2>Dippin' Dots</h2>
         </hgroup>
-        <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2">
-          col-span-full lg:col-span-4 2xl:col-span-3 4xl:col-span-2
+        <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
+          Randomly generated circles. All movements supported by Framer Motion.
         </p>
         <section
           className={clsx(
-            "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2 lg:mb-r6"
+            "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2 lg:mb-0"
           )}
         >
           <Figure>
