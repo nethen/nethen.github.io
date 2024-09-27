@@ -51,7 +51,7 @@ export default function Visualizations() {
       >
         {width >= 1024 && isClient && (
           <nav className="sticky top-28 flex flex-col gap-y-r1 h-0">
-            <h2 className="text-m-lg lg:text-r-lg">01</h2>
+            <h2 className="text-m-lg lg:text-r-lg">02</h2>
             <ul className="">
               <li>
                 <Link href="#sketch-1a">SVG</Link>
