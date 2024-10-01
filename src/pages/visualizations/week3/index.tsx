@@ -103,7 +103,7 @@ export default function Visualizations() {
             "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2 lg:mb-r4"
           )}
         >
-          <Figure>
+          <Figure className="tracking-normal">
             <W3Visualization1 />
           </Figure>
         </section>

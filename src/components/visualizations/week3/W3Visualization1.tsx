@@ -1,5 +1,6 @@
 import { useIsClient, useWindowSize } from "usehooks-ts";
 import { createClassFromSpec, Vega } from "react-vega";
+// import * as dt from "@/data/week3/videogames_long.csv";
 import { VisualizationSpec } from "react-vega";
 import vg from "vega";
 
@@ -14,48 +15,40 @@ import vg from "vega";
 
 export const W3Visualization1 = createClassFromSpec({
   spec: {
-    $schema: "https://vega.github.io/schema/vega/v5.json",
-    width: 400,
-    height: 200,
+    // $schema: "https://vega.github.io/schema/vega/v5.json",
+    width: 600,
+    height: 400,
     padding: { left: 5, right: 5, top: 5, bottom: 5 },
 
     data: [
       {
         name: "table",
-        values: [
-          { category: "A", amount: 28 },
-          { category: "B", amount: 55 },
-          { category: "C", amount: 43 },
-          { category: "D", amount: 91 },
-          { category: "E", amount: 81 },
-          { category: "F", amount: 53 },
-          { category: "G", amount: 19 },
-          { category: "H", amount: 87 },
-        ],
+        url: "/data/week3/videogames_long.csv",
+        format: { type: "csv" },
       },
     ],
 
-    signals: [
-      {
-        name: "tooltip",
-        value: {},
-        on: [
-          { events: "rect:mouseover", update: "datum" },
-          { events: "rect:mouseout", update: "{}" },
-        ],
-      },
-    ],
+    // signals: [
+    //   {
+    //     name: "tooltip",
+    //     value: {},
+    //     on: [
+    //       { events: "rect:mouseover", update: "datum" },
+    //       { events: "rect:mouseout", update: "{}" },
+    //     ],
+    //   },
+    // ],
 
     scales: [
       {
         name: "xscale",
         type: "band",
-        domain: { data: "table", field: "category" },
+        domain: { data: "table", field: "genre" },
         range: "width",
       },
       {
         name: "yscale",
-        domain: { data: "table", field: "amount" },
+        domain: { data: "table", field: "sales_amount" },
         nice: true,
         range: "height",
       },
@@ -72,9 +65,12 @@ export const W3Visualization1 = createClassFromSpec({
         from: { data: "table" },
         encode: {
           enter: {
-            x: { scale: "xscale", field: "category", offset: 1 },
-            width: { scale: "xscale", band: 1, offset: -1 },
-            y: { scale: "yscale", field: "amount" },
+            x: { scale: "xscale", field: "genre", offset: 10 },
+            width: { scale: "xscale", band: 1, offset: -10 },
+            y: {
+              scale: "yscale",
+              field: "sales_amount",
+            },
             y2: { scale: "yscale", value: 0 },
           },
           update: {
@@ -85,25 +81,25 @@ export const W3Visualization1 = createClassFromSpec({
           },
         },
       },
-      {
-        type: "text",
-        encode: {
-          enter: {
-            align: { value: "center" },
-            baseline: { value: "bottom" },
-            fill: { value: "#333" },
-          },
-          update: {
-            x: { scale: "xscale", signal: "tooltip.category", band: 0.5 },
-            y: { scale: "yscale", signal: "tooltip.amount", offset: -2 },
-            text: { signal: "tooltip.amount" },
-            fillOpacity: [
-              { test: "datum === tooltip", value: 0 },
-              { value: 1 },
-            ],
-          },
-        },
-      },
+      // {
+      //   type: "text",
+      //   encode: {
+      //     enter: {
+      //       align: { value: "center" },
+      //       baseline: { value: "bottom" },
+      //       fill: { value: "#333" },
+      //     },
+      //     update: {
+      //       x: { scale: "xscale", band: 0.5 },
+      //       y: { scale: "yscale", offset: -2 },
+      //       text: { signal: "tooltip.amount" },
+      //       fillOpacity: [
+      //         { test: "datum === tooltip", value: 0 },
+      //         { value: 1 },
+      //       ],
+      //     },
+      //   },
+      // },
     ],
   },
 });
