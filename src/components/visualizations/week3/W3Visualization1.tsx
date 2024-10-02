@@ -16,7 +16,7 @@ import vg from "vega";
 export const W3Visualization1 = createClassFromSpec({
   spec: {
     // $schema: "https://vega.github.io/schema/vega/v5.json",
-    width: 600,
+    width: 400,
     height: 400,
     padding: { left: 5, right: 5, top: 5, bottom: 5 },
 
@@ -25,82 +25,79 @@ export const W3Visualization1 = createClassFromSpec({
         name: "table",
         url: "/data/week3/videogames_long.csv",
         format: { type: "csv" },
+        // transform: [
+        //   {
+        //     type: "aggregate",
+        //     groupby: ["platform", "genre"],
+        //     fields: ["sales_amount"],
+        //     ops: ["sum"],
+        //     as: ["sales_amount"],
+        //   },
+        // ],
       },
     ],
-
-    // signals: [
-    //   {
-    //     name: "tooltip",
-    //     value: {},
-    //     on: [
-    //       { events: "rect:mouseover", update: "datum" },
-    //       { events: "rect:mouseout", update: "{}" },
-    //     ],
-    //   },
-    // ],
 
     scales: [
       {
         name: "xscale",
-        type: "band",
-        domain: { data: "table", field: "genre" },
+        type: "linear",
+        domain: { data: "table", field: "sales_amount" },
+        nice: true,
         range: "width",
       },
       {
         name: "yscale",
-        domain: { data: "table", field: "sales_amount" },
-        nice: true,
+        type: "band",
+        domain: { data: "table", field: "genre" },
         range: "height",
+      },
+      {
+        name: "color",
+        type: "ordinal",
+        range: "category",
+        domain: { data: "table", field: "platform" },
       },
     ],
 
     axes: [
+      { orient: "left", scale: "yscale", zindex: 1 },
       { orient: "bottom", scale: "xscale" },
-      { orient: "left", scale: "yscale" },
     ],
 
     marks: [
       {
-        type: "rect",
-        from: { data: "table" },
-        encode: {
-          enter: {
-            x: { scale: "xscale", field: "genre", offset: 10 },
-            width: { scale: "xscale", band: 1, offset: -10 },
-            y: {
-              scale: "yscale",
-              field: "sales_amount",
-            },
-            y2: { scale: "yscale", value: 0 },
-          },
-          update: {
-            fill: { value: "steelblue" },
-          },
-          hover: {
-            fill: { value: "red" },
+        type: "group",
+        from: {
+          facet: {
+            data: "table",
+            name: "facet",
+            groupby: "genre",
           },
         },
+        encode: {
+          enter: {
+            y: { scale: "yscale", field: "genre" },
+          },
+        },
+        marks: [
+          {
+            name: "bars",
+            from: { data: "facet" },
+            type: "rect",
+            encode: {
+              enter: {
+                // y: { scale: "band", field: "platform" },
+                height: { scale: "yscale", band: 1 },
+                x: { scale: "xscale", field: "sales_amount" },
+                x2: { scale: "xscale", value: 0 },
+                fill: { scale: "color", field: "platform" },
+              },
+            },
+          },
+        ],
       },
-      // {
-      //   type: "text",
-      //   encode: {
-      //     enter: {
-      //       align: { value: "center" },
-      //       baseline: { value: "bottom" },
-      //       fill: { value: "#333" },
-      //     },
-      //     update: {
-      //       x: { scale: "xscale", band: 0.5 },
-      //       y: { scale: "yscale", offset: -2 },
-      //       text: { signal: "tooltip.amount" },
-      //       fillOpacity: [
-      //         { test: "datum === tooltip", value: 0 },
-      //         { value: 1 },
-      //       ],
-      //     },
-      //   },
-      // },
     ],
+    autosize: "pad",
   },
 });
 
