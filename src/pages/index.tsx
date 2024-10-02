@@ -17,9 +17,9 @@ export default function Home() {
 
   const lenis = useLenis();
 
-  useEffect(() => {
-    lenis?.scrollTo(0, { immediate: true, force: true });
-  }, [lenis]);
+  // useEffect(() => {
+  //   lenis?.scrollTo(0, { immediate: true, force: true });
+  // }, [lenis]);
 
   return (
     <>

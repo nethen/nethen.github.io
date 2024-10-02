@@ -9,6 +9,7 @@ import { Figure } from "@/components/Layout/Figure";
 import { useEffect } from "react";
 import { useLenis } from "lenis/react";
 import { W3Visualization1 } from "@/components/visualizations/week3/W3Visualization1";
+import { W3Visualization3 } from "@/components/visualizations/week3/W3Visualization3";
 
 export default function Visualizations() {
   const { width = 0 } = useWindowSize();
@@ -16,9 +17,9 @@ export default function Visualizations() {
 
   const lenis = useLenis();
 
-  useEffect(() => {
-    lenis?.scrollTo(0, { immediate: true, force: true });
-  }, [lenis]);
+  // useEffect(() => {
+  //   lenis?.scrollTo(0, { immediate: true, force: true });
+  // }, [lenis]);
 
   return (
     <>
@@ -104,10 +105,17 @@ export default function Visualizations() {
           )}
         >
           <Figure className="tracking-normal">
-            <W3Visualization1 />
+            <W3Visualization1
+            // data={{
+            //   table: {
+            //     url: "/data/week3/videogames_long.csv",
+            //     format: { type: "csv" },
+            //   },
+            // }}
+            />
           </Figure>
         </section>
-        {/* <hgroup
+        {/*<hgroup
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="2"
         >
@@ -128,13 +136,12 @@ export default function Visualizations() {
           <Figure>
             <SketchSVG />
           </Figure>
-        </section>
+        </section> */}
         <hgroup
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="3"
         >
           <h2>Regional Sales vs. Platform</h2>
-          
         </hgroup>
         <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
           A nice review of the SVG coordinate system and elements. A notable
@@ -147,11 +154,11 @@ export default function Visualizations() {
             "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2 lg:mb-r4"
           )}
         >
-          <Figure>
-            <SketchSVG />
-          </Figure>
+          {/* <Figure>
+            <W3Visualization3 />
+          </Figure> */}
         </section>
-        <hgroup
+        {/* <hgroup
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="4"
         >
