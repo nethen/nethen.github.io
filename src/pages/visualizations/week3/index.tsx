@@ -107,6 +107,9 @@ export default function Visualizations() {
         >
           <Figure className="tracking-normal">
             <W3Visualization1 />
+            <figcaption className="text-midground">
+              Scrub the right side to focus
+            </figcaption>
           </Figure>
         </section>
         <hgroup
@@ -128,6 +131,9 @@ export default function Visualizations() {
         >
           <Figure>
             <W3Visualization2 />
+            <figcaption className="text-midground">
+              Scrub the right side to focus
+            </figcaption>
           </Figure>
         </section>
         <hgroup
