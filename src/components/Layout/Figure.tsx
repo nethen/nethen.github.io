@@ -12,7 +12,7 @@ export const Figure = ({
       className={clsx(
         className,
         "col-span-full lg:col-start-2 lg:col-span-6 bg-neutral-100 dark:bg-neutral-900 rounded-3xl p-m1 lg:p-r2",
-        "tracking-normal aspect-square md:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full flex flex-col justify-center items-center gap-r1"
+        "relative tracking-normal aspect-square md:aspect-video w-full min-h-[60svh] lg:min-h-[80svh] lg:h-full flex flex-col justify-center items-center gap-r1"
       )}
     >
       {children}

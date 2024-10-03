@@ -146,7 +146,7 @@ export const W3Visualization4 = createClassFromSpec({
               param: "select",
               value: 1,
             },
-            value: 0.5,
+            value: 0.2,
           },
           tooltip: [
             {

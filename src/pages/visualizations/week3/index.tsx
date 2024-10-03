@@ -81,10 +81,10 @@ export default function Visualizations() {
           {/* <h3 className="opacity-50">Made with SVG elements</h3> */}
         </hgroup>
         <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
-          A nice review of the SVG coordinate system and elements. A notable
-          challenge was preventing distortion of elements when the viewport was
-          resized. Fixes involved a mix of relative units (%) and alignment
-          using the preserveAspectRatio attribute.
+          The data consists of a variety of videogames sold by various
+          publishers from 1980 to 2020. Each item holds nominal data (name,
+          publisher, genre, platform and sales region) and quantitative data
+          (sales amount by region, global sales, and year).
         </p>
         <hgroup
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
@@ -181,6 +181,9 @@ export default function Visualizations() {
             <figcaption className="text-midground">
               Hover over each publisher to see their market share
             </figcaption>
+            <p className="text-midground absolute bottom-r2 left-r2 text-[0.5em]">
+              Note: "Other" category is broken.
+            </p>
           </Figure>
         </section>
       </article>
