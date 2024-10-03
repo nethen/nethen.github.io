@@ -5,13 +5,17 @@ import { VisualizationSpec } from "react-vega";
 import vg from "vega";
 import { useState } from "react";
 
-export const W3Visualization3 = createClassFromSpec({
+export const W3Visualization2 = createClassFromSpec({
   mode: "vega-lite",
   spec: {
     // $schema: "https://vega.github.io/schema/vega/v5.json",
     width: 600,
     height: 600,
     padding: 5,
+
+    config: {
+      font: "BST Symbol",
+    },
 
     data: {
       url: "/data/week3/videogames_long.csv",
@@ -26,22 +30,22 @@ export const W3Visualization3 = createClassFromSpec({
       },
     ],
 
-    mark: "bar",
+    mark: {
+      type: "line",
+      point: true,
+    },
     encoding: {
       x: {
+        field: "year",
+        type: "temporal",
+        timeUnit: "year",
+        axis: { title: "Year" },
+      },
+      y: {
         field: "sales_amount",
         type: "quantitative",
         axis: { title: "Sales Amount" },
         aggregate: "sum",
-      },
-      y: {
-        field: "platform",
-        type: "nominal",
-        axis: { title: "Platform" },
-      },
-      yOffset: {
-        field: "sales_region",
-        type: "nominal",
       },
       color: {
         field: "sales_region",
@@ -52,4 +56,4 @@ export const W3Visualization3 = createClassFromSpec({
   },
 });
 
-export default W3Visualization3;
+export default W3Visualization2;

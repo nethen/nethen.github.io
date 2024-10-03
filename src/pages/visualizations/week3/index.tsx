@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useLenis } from "lenis/react";
 import { W3Visualization1 } from "@/components/visualizations/week3/W3Visualization1";
 import { W3Visualization3 } from "@/components/visualizations/week3/W3Visualization3";
+import W3Visualization2 from "@/components/visualizations/week3/W3Visualization2";
 
 export default function Visualizations() {
   const { width = 0 } = useWindowSize();
@@ -105,22 +106,14 @@ export default function Visualizations() {
           )}
         >
           <Figure className="tracking-normal">
-            <W3Visualization1
-            // data={{
-            //   table: {
-            //     url: "/data/week3/videogames_long.csv",
-            //     format: { type: "csv" },
-            //   },
-            // }}
-            />
+            <W3Visualization1 />
           </Figure>
         </section>
-        {/*<hgroup
+        <hgroup
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="2"
         >
           <h2>Sales Over Time by Platform and Genre</h2>
-          
         </hgroup>
         <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
           A nice review of the SVG coordinate system and elements. A notable
@@ -134,9 +127,9 @@ export default function Visualizations() {
           )}
         >
           <Figure>
-            <SketchSVG />
+            <W3Visualization2 />
           </Figure>
-        </section> */}
+        </section>
         <hgroup
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="3"
@@ -154,9 +147,9 @@ export default function Visualizations() {
             "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2 lg:mb-r4"
           )}
         >
-          {/* <Figure>
+          <Figure>
             <W3Visualization3 />
-          </Figure> */}
+          </Figure>
         </section>
         {/* <hgroup
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
