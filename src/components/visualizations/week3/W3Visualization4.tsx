@@ -1,6 +1,6 @@
 import { createClassFromSpec } from "react-vega";
 
-export const W3Visualization3 = createClassFromSpec({
+export const W3Visualization4 = createClassFromSpec({
   mode: "vega-lite",
   spec: {
     padding: 5,
@@ -151,4 +151,4 @@ export const W3Visualization3 = createClassFromSpec({
   },
 });
 
-export default W3Visualization3;
+export default W3Visualization4;

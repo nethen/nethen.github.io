@@ -9,8 +9,8 @@ import { Figure } from "@/components/Layout/Figure";
 import { useEffect } from "react";
 import { useLenis } from "lenis/react";
 import { W3Visualization1 } from "@/components/visualizations/week3/W3Visualization1";
+import { W3Visualization2 } from "@/components/visualizations/week3/W3Visualization2";
 import { W3Visualization3 } from "@/components/visualizations/week3/W3Visualization3";
-import W3Visualization2 from "@/components/visualizations/week3/W3Visualization2";
 
 export default function Visualizations() {
   const { width = 0 } = useWindowSize();
@@ -108,7 +108,7 @@ export default function Visualizations() {
           <Figure className="tracking-normal">
             <W3Visualization1 />
             <figcaption className="text-midground">
-              Scrub the right side to focus
+              Hover over each genre on the right for more details
             </figcaption>
           </Figure>
         </section>
@@ -132,7 +132,7 @@ export default function Visualizations() {
           <Figure>
             <W3Visualization2 />
             <figcaption className="text-midground">
-              Scrub the right side to focus
+              Drag and brush over a set of years for a closer look
             </figcaption>
           </Figure>
         </section>
@@ -155,6 +155,9 @@ export default function Visualizations() {
         >
           <Figure>
             <W3Visualization3 />
+            <figcaption className="text-midground">
+              Hover over each region on the right for more details
+            </figcaption>
           </Figure>
         </section>
         {/* <hgroup

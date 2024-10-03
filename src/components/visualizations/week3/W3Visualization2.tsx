@@ -1,16 +1,8 @@
-import { useEventListener, useIsClient, useWindowSize } from "usehooks-ts";
-import { createClassFromSpec, Vega, VegaLite } from "react-vega";
-// import * as dt from "@/data/week3/videogames_long.csv";
-import { VisualizationSpec } from "react-vega";
-import vg from "vega";
-import { useState } from "react";
+import { createClassFromSpec } from "react-vega";
 
 export const W3Visualization2 = createClassFromSpec({
   mode: "vega-lite",
   spec: {
-    // $schema: "https://vega.github.io/schema/vega/v5.json",
-    width: 600,
-    height: 600,
     padding: 5,
 
     data: {
@@ -18,37 +10,174 @@ export const W3Visualization2 = createClassFromSpec({
       format: { type: "csv" },
     },
 
-    params: [
+    hconcat: [
       {
-        name: "region",
-        select: { type: "point", fields: ["sales_region"] },
-        bind: "legend",
+        width: 300,
+        height: 400,
+
+        layer: [
+          {
+            transform: [
+              {
+                filter:
+                  // or: [{ param: "click" }, { param: "brush" }],
+                  { param: "brush" },
+              },
+            ],
+            mark: "bar",
+            encoding: {
+              y: {
+                field: "sales_amount",
+                type: "quantitative",
+                aggregate: "sum",
+                axis: { title: "Total Sales (millions)" },
+              },
+              x: {
+                field: "genre",
+                type: "nominal",
+
+                axis: { title: "Genre", labelAngle: -45 },
+              },
+            },
+          },
+        ],
+      },
+      {
+        width: 300,
+        height: 400,
+
+        layer: [
+          {
+            transform: [
+              {
+                filter:
+                  // or: [{ param: "click" }, { param: "brush" }],
+                  { param: "brush" },
+              },
+            ],
+            mark: "bar",
+            encoding: {
+              y: {
+                field: "sales_amount",
+                type: "quantitative",
+                aggregate: "sum",
+                axis: { title: "Total Sales (millions)" },
+              },
+              x: {
+                field: "platform",
+                type: "nominal",
+
+                axis: { title: "Platform" },
+              },
+            },
+          },
+        ],
+      },
+      {
+        width: 300,
+        height: 400,
+        layer: [
+          // REMOVED TO REDUCE INPUT DELAY
+          // {
+          //   mark: { type: "bar", color: "#ddd" },
+          //   params: [
+          //     {
+          //       name: "hover",
+          //       select: {
+          //         type: "point",
+          //         encodings: ["x"],
+          //         on: "mouseover",
+          //         // clear: "mouseout",
+          //       },
+          //     },
+          //     {
+          //       name: "click",
+          //       select: {
+          //         type: "point",
+          //         encodings: ["x"],
+          //       },
+          //     },
+          //   ],
+
+          //   encoding: {
+          //     x: {
+          //       field: "year",
+          //       type: "temporal",
+          //       timeUnit: "year",
+          //       axis: { title: "Year" },
+          //     },
+
+          //     fillOpacity: {
+          //       condition: [
+          //         {
+          //           param: "hover",
+          //           value: 0.5,
+          //           empty: false,
+          //         },
+          //         {
+          //           param: "click",
+          //           value: 0.5,
+          //           empty: false,
+          //         },
+          //       ],
+          //       value: 0,
+          //     },
+          //   },
+          // },
+          {
+            mark: "bar",
+            params: [
+              {
+                name: "brush",
+                select: {
+                  type: "interval",
+                  encodings: ["x"],
+                },
+              },
+            ],
+
+            encoding: {
+              y: {
+                field: "sales_amount",
+                type: "quantitative",
+                aggregate: "sum",
+                axis: { title: "Total Sales (millions)" },
+              },
+              x: {
+                field: "year",
+                type: "temporal",
+                timeUnit: "year",
+                axis: { title: "Year", labelAngle: 0 },
+              },
+              color: {
+                condition: [
+                  // {
+                  //   param: "click",
+                  //   value: "green",
+                  //   empty: false,
+                  // },
+                  {
+                    param: "brush",
+                    value: "green",
+                    empty: false,
+                  },
+                ],
+                value: "steelblue",
+              },
+              fillOpacity: {
+                condition: [
+                  {
+                    param: "brush",
+                    value: 1,
+                  },
+                ],
+                value: 0.5,
+              },
+            },
+          },
+        ],
       },
     ],
-
-    mark: {
-      type: "line",
-      point: true,
-    },
-    encoding: {
-      x: {
-        field: "year",
-        type: "temporal",
-        timeUnit: "year",
-        axis: { title: "Year" },
-      },
-      y: {
-        field: "sales_amount",
-        type: "quantitative",
-        axis: { title: "Sales Amount" },
-        aggregate: "sum",
-      },
-      color: {
-        field: "sales_region",
-        scale: { scheme: "tableau20" },
-      },
-    },
-    transform: [{ filter: { param: "region", field: "sales_region" } }],
   },
 });
 

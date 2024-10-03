@@ -14,6 +14,7 @@ export const W3Visualization1 = createClassFromSpec({
       {
         width: 300,
         height: 400,
+
         layer: [
           {
             transform: [
@@ -49,9 +50,11 @@ export const W3Visualization1 = createClassFromSpec({
               // color: {
               //   condition: {
               //     param: "hover",
-              //     value: "steelblue",
+              //     value: "grey",
+              //     // value: "steelblue",
               //   },
-              //   value: "green",
+              //   // value: "grey",
+              //   // value: "green",
               // },
             },
           },
@@ -73,6 +76,7 @@ export const W3Visualization1 = createClassFromSpec({
                   clear: "pointerout",
                 },
               },
+
               {
                 name: "click",
                 select: {
@@ -88,7 +92,7 @@ export const W3Visualization1 = createClassFromSpec({
               y: {
                 field: "genre",
                 axis: { title: "Genre" },
-                // sort: { field: "sales_amount", order: "descending" },
+                sort: { field: "sales_amount", order: "descending" },
               },
               opacity: {
                 condition: [
@@ -115,18 +119,25 @@ export const W3Visualization1 = createClassFromSpec({
               y: {
                 field: "genre",
                 type: "nominal",
-                // sort: "-x",
+                sort: "-x",
                 axis: { title: "Genre" },
               },
+
               color: {
+                field: "genre",
+                scale: {
+                  scheme: "category20",
+                },
+              },
+              fillOpacity: {
                 condition: [
                   {
                     param: "hover",
-                    value: "steelblue",
+                    value: 1,
                     empty: false,
                   },
                 ],
-                value: "grey",
+                value: 0.5,
               },
             },
           },
