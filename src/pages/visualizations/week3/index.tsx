@@ -3,11 +3,9 @@ import clsx from "clsx";
 import { grid } from "@/components/Grid/ToggleGrid";
 import { useWindowSize, useIsClient } from "usehooks-ts";
 import Link from "next/link";
-import { SketchSVG } from "@/components/visualizations/week2/SketchSVG";
-import { SketchJS } from "@/components/visualizations/week2/SketchJS";
 import { Figure } from "@/components/Layout/Figure";
-import { useEffect } from "react";
-import { useLenis } from "lenis/react";
+// import { useEffect } from "react";
+// import { useLenis } from "lenis/react";
 import { W3Visualization1 } from "@/components/visualizations/week3/W3Visualization1";
 import { W3Visualization2 } from "@/components/visualizations/week3/W3Visualization2";
 import { W3Visualization3 } from "@/components/visualizations/week3/W3Visualization3";
@@ -17,7 +15,7 @@ export default function Visualizations() {
   const { width = 0 } = useWindowSize();
   const isClient = useIsClient();
 
-  const lenis = useLenis();
+  // const lenis = useLenis();
 
   // useEffect(() => {
   //   lenis?.scrollTo(0, { immediate: true, force: true });

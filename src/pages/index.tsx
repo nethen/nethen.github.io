@@ -8,14 +8,13 @@ import { ExternalLink } from "@/components/Link/ExternalLink";
 import ExternalInlineLink from "@/components/Link/ExternalInlineLink";
 import { Figure } from "@/components/Layout/Figure";
 import { SketchSVG } from "@/components/visualizations/week2/SketchSVG";
-import { useEffect } from "react";
-import { useLenis } from "lenis/react";
+// import { useLenis } from "lenis/react";
 
 export default function Home() {
   const { width = 0 } = useWindowSize();
   const isClient = useIsClient();
 
-  const lenis = useLenis();
+  // const lenis = useLenis();
 
   // useEffect(() => {
   //   lenis?.scrollTo(0, { immediate: true, force: true });
@@ -68,9 +67,12 @@ export default function Home() {
           </Figure>
           <div className="absolute inset-0  h-full flex flex-col justify-end items-center pointer-events-none">
             <div className="sticky bottom-m4 lg:bottom-r2  flex flex-col items-center">
-              <Link href="/visualizations#1a" className="pointer-events-auto">
+              <Link
+                href="/visualizations/week3"
+                className="pointer-events-auto"
+              >
                 <motion.div className="w-fit leading-none px-m1 py-2 lg:py-3 rounded-full bg-foreground text-background">
-                  View sketch <motion.span>&rarr;</motion.span>
+                  View latest <motion.span>&rarr;</motion.span>
                 </motion.div>
               </Link>
             </div>
