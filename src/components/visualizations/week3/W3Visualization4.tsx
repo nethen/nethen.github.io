@@ -10,15 +10,78 @@ export const W3Visualization4 = createClassFromSpec({
       format: { type: "csv" },
     },
 
-    layer: [
+    hconcat: [
       {
+        width: 200,
+        layer: [
+          {
+            transform: [
+              // {
+              //   aggregate: [
+              //     {
+              //       op: "sum",
+              //       field: "sales_amount",
+              //       as: "sales_amount_relative",
+              //     },
+              //   ],
+              //   groupby: ["genre", "publisher", "sales_amount"],
+              // },
+
+              {
+                filter: {
+                  param: "select",
+                },
+              },
+            ],
+            mark: { type: "bar" },
+            encoding: {
+              x: {
+                field: "sales_amount",
+                type: "quantitative",
+                aggregate: "sum",
+              },
+              y: {
+                field: "genre",
+                sort: "-x",
+              },
+
+              color: {
+                condition: {
+                  param: "select",
+                  field: "publisher",
+                  scale: {
+                    scheme: "category20",
+                    domain: [
+                      "Activision",
+                      "Electronic Arts",
+                      "Konami Digital Entertainment",
+                      "Namco Bandai Games",
+                      "Nintendo",
+                      "Others",
+                      "Sega",
+                      "Sony Computer Entertainment",
+                      "THQ",
+                      "Take-Two Interactive",
+                      "Ubisoft",
+                    ],
+                  },
+                  empty: false,
+                },
+                value: "grey",
+              },
+            },
+          },
+        ],
+      },
+      {
+        width: 200,
         params: [
           {
             name: "select",
             select: {
               type: "point",
               // encodings: ["color"],
-              fields: ["publisher_group"],
+              fields: ["publisher"],
               on: "mouseover",
               clear: "mouseout",
             },
@@ -26,6 +89,11 @@ export const W3Visualization4 = createClassFromSpec({
         ],
 
         transform: [
+          // {
+          //   joinaggregate: [
+          //     { op: "sum", field: "sales_amount", as: "sales_amount_total" },
+          //   ],
+          // },
           {
             aggregate: [
               { op: "sum", field: "sales_amount", as: "sales_amount" },
@@ -38,16 +106,26 @@ export const W3Visualization4 = createClassFromSpec({
           },
           {
             calculate: "datum.rank <= 10 ? datum.publisher : 'Others'",
-            as: "publisher_group",
+            as: "publisher",
           },
           {
             aggregate: [
               { op: "sum", field: "sales_amount", as: "sales_amount" },
             ],
-            groupby: ["publisher_group"],
+            groupby: ["publisher"],
+          },
+          {
+            joinaggregate: [
+              { op: "sum", field: "sales_amount", as: "sales_amount_total" },
+            ],
+          },
+          {
+            calculate:
+              "round(datum.sales_amount / datum.sales_amount_total * 10000) / 100",
+            as: "sales_amount_relative",
           },
         ],
-        mark: { type: "arc", tooltip: true },
+        mark: { type: "arc" },
         encoding: {
           theta: {
             field: "sales_amount",
@@ -56,7 +134,7 @@ export const W3Visualization4 = createClassFromSpec({
             title: "Market Share",
           },
           color: {
-            field: "publisher_group",
+            field: "publisher",
             type: "nominal",
             scale: {
               scheme: "category20",
@@ -70,90 +148,21 @@ export const W3Visualization4 = createClassFromSpec({
             },
             value: 0.5,
           },
+          tooltip: [
+            {
+              field: "publisher",
+              title: "Publisher",
+              type: "nominal",
+            },
+            {
+              field: "sales_amount_relative",
+              title: "Market Share (%)",
+              type: "quantitative",
+            },
+          ],
         },
       },
     ],
-
-    // hconcat: [
-    //   {
-    //     transform: [
-    //       {
-    //         fold: ["na_sales", "eu_sales", "jp_sales", "other_Sales"],
-    //       },
-    //     ],
-    //     mark: "bar",
-    //     encoding: {
-    //       x: {
-    //         field: "sales_amount",
-    //         type: "quantitative",
-    //         aggregate: "sum",
-    //       },
-    //       y: { field: "name", type: "nominal", sort: "-x" },
-    //       color: {
-    //         field: "publisher",
-    //       },
-    //     },
-    //   },
-    //   {
-    //     params: [
-    //       {
-    //         name: "select",
-    //         select: {
-    //           type: "point",
-    //           // encodings: ["color"],
-    //           fields: ["publisher_group"],
-    //           on: "mouseover",
-    //           clear: "mouseout",
-    //         },
-    //       },
-    //     ],
-
-    //     transform: [
-    //       {
-    //         aggregate: [
-    //           { op: "sum", field: "sales_amount", as: "sales_amount" },
-    //         ],
-    //         groupby: ["publisher"],
-    //       },
-    //       {
-    //         window: [{ op: "rank", as: "rank" }],
-    //         sort: [{ field: "sales_amount", order: "descending" }],
-    //       },
-    //       {
-    //         calculate: "datum.rank <= 10 ? datum.publisher : 'Others'",
-    //         as: "publisher_group",
-    //       },
-    //       {
-    //         aggregate: [
-    //           { op: "sum", field: "sales_amount", as: "sales_amount" },
-    //         ],
-    //         groupby: ["publisher_group"],
-    //       },
-    //     ],
-    //     mark: { type: "arc", tooltip: true },
-    //     encoding: {
-    //       theta: {
-    //         field: "sales_amount",
-    //         type: "quantitative",
-    //         stack: "normalize",
-    //       },
-    //       color: {
-    //         field: "publisher_group",
-    //         type: "nominal",
-    //         scale: {
-    //           scheme: "category20",
-    //         },
-    //       },
-    //       opacity: {
-    //         condition: {
-    //           param: "select",
-    //           value: 1,
-    //         },
-    //         value: 0.5,
-    //       },
-    //     },
-    //   },
-    // ],
   },
 });
 
