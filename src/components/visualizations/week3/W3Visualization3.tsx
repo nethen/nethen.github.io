@@ -20,13 +20,13 @@ export const W3Visualization3 = createClassFromSpec({
             transform: [
               {
                 filter: {
-                  // or: [
-                  //   { param: "hover" },
-                  //   {
-                  //     and: [{ param: "click" }, { not: { param: "hover" } }],
-                  //   },
-                  // ],
-                  param: "hover",
+                  or: [
+                    { param: "hover" },
+                    // {
+                    //   param: "click",
+                    // },
+                  ],
+                  // param: "hover",
                 },
               },
             ],
@@ -47,6 +47,24 @@ export const W3Visualization3 = createClassFromSpec({
                 sort: "-x",
                 axis: { title: "Platform" },
               },
+              color: {
+                condition: {
+                  param: "hover",
+                  field: "sales_region",
+                  empty: false,
+                },
+                value: "grey",
+              },
+              opacity: {
+                condition: [
+                  {
+                    param: "hover",
+                    value: 1,
+                    empty: false,
+                  },
+                ],
+                value: 0.5,
+              },
               // color: {
               //   condition: {
               //     param: "hover",
@@ -58,6 +76,34 @@ export const W3Visualization3 = createClassFromSpec({
               // },
             },
           },
+          // {
+          //   mark: "bar",
+          //   encoding: {
+          //     x: {
+          //       field: "sales_amount",
+          //       type: "quantitative",
+          //       aggregate: "sum",
+          //       axis: { title: "Total Sales (millions)" },
+          //     },
+          //     y: {
+          //       field: "platform",
+          //       type: "nominal",
+          //       sort: "-x",
+          //       axis: { title: "Platform" },
+          //     },
+
+          //     opacity: {
+          //       condition: [
+          //         {
+          //           param: "hover",
+          //           value: 0,
+          //           empty: false,
+          //         },
+          //       ],
+          //       value: 1,
+          //     },
+          //   },
+          // },
         ],
       },
       {
@@ -70,7 +116,7 @@ export const W3Visualization3 = createClassFromSpec({
                 name: "hover",
                 select: {
                   type: "point",
-                  encodings: ["y"],
+                  encodings: ["y", "color"],
                   on: "pointerover",
                   // clear: "dblclick",
                   clear: "pointerout",
@@ -81,7 +127,7 @@ export const W3Visualization3 = createClassFromSpec({
                 name: "click",
                 select: {
                   type: "point",
-                  encodings: ["y"],
+                  encodings: ["y", "color"],
                   on: "click",
                   clear: "dblclick",
                 },
@@ -127,11 +173,15 @@ export const W3Visualization3 = createClassFromSpec({
               },
 
               color: {
-                field: "sales_region",
-                title: "Region",
-                scale: {
-                  // scheme: "category20",
+                condition: {
+                  param: "hover",
+                  field: "sales_region",
+                  scale: {
+                    domain: ["na_sales", "eu_sales", "jp_sales", "other_sales"],
+                    // range: ["#e7ba52", "#a7a7a7", "#aec7e8", "#1f77b4"],
+                  },
                 },
+                value: "grey",
               },
               fillOpacity: {
                 condition: [

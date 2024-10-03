@@ -47,15 +47,17 @@ export const W3Visualization4 = createClassFromSpec({
                 sort: "-x",
                 axis: { title: "Platform" },
               },
-              // color: {
-              //   condition: {
-              //     param: "hover",
-              //     value: "grey",
-              //     // value: "steelblue",
-              //   },
-              //   // value: "grey",
-              //   // value: "green",
-              // },
+              color: {
+                condition: {
+                  param: "hover",
+                  field: "genre",
+                  // scale: {
+                  //   scheme: "category20",
+                  // },
+                  empty: false,
+                },
+                value: "grey",
+              },
             },
           },
         ],

@@ -47,15 +47,17 @@ export const W3Visualization1 = createClassFromSpec({
                 sort: "-x",
                 axis: { title: "Platform" },
               },
-              // color: {
-              //   condition: {
-              //     param: "hover",
-              //     value: "grey",
-              //     // value: "steelblue",
-              //   },
-              //   // value: "grey",
-              //   // value: "green",
-              // },
+              color: {
+                condition: {
+                  param: "hover",
+                  field: "genre",
+                  empty: false,
+                  scale: {
+                    scheme: "category20",
+                  },
+                },
+                value: "grey",
+              },
             },
           },
         ],
@@ -70,7 +72,7 @@ export const W3Visualization1 = createClassFromSpec({
                 name: "hover",
                 select: {
                   type: "point",
-                  encodings: ["y"],
+                  encodings: ["y", "color"],
                   on: "pointerover",
                   // clear: "dblclick",
                   clear: "pointerout",
@@ -124,10 +126,14 @@ export const W3Visualization1 = createClassFromSpec({
               },
 
               color: {
-                field: "genre",
-                scale: {
-                  scheme: "category20",
+                condition: {
+                  param: "hover",
+                  field: "genre",
+                  scale: {
+                    scheme: "category20",
+                  },
                 },
+                value: "grey",
               },
               fillOpacity: {
                 condition: [
