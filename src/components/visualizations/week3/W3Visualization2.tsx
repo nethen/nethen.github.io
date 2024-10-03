@@ -158,11 +158,11 @@ export const W3Visualization2 = createClassFromSpec({
                   // },
                   {
                     param: "brush",
-                    value: "green",
+                    value: "steelblue",
                     empty: false,
                   },
                 ],
-                value: "steelblue",
+                value: "grey",
               },
               fillOpacity: {
                 condition: [
