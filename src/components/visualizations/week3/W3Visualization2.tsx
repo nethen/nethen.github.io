@@ -13,10 +13,6 @@ export const W3Visualization2 = createClassFromSpec({
     height: 600,
     padding: 5,
 
-    config: {
-      font: "BST Symbol",
-    },
-
     data: {
       url: "/data/week3/videogames_long.csv",
       format: { type: "csv" },
