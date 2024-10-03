@@ -16,12 +16,27 @@ export const W3Visualization1 = createClassFromSpec({
         height: 400,
         layer: [
           {
-            transform: [{ filter: { param: "pts" } }],
+            transform: [
+              {
+                filter: {
+                  // or: [
+                  //   { param: "hover" },
+                  //   {
+                  //     and: [{ param: "click" }, { not: { param: "hover" } }],
+                  //   },
+                  // ],
+                  param: "hover",
+                },
+              },
+            ],
             mark: "bar",
             encoding: {
               x: {
                 field: "sales_amount",
                 type: "quantitative",
+                // scale: {
+                //   type: "linear",
+                // },
                 aggregate: "sum",
                 axis: { title: "Total Sales (millions)" },
               },
@@ -31,24 +46,13 @@ export const W3Visualization1 = createClassFromSpec({
                 sort: "-x",
                 axis: { title: "Platform" },
               },
-            },
-          },
-          {
-            transform: [{ filter: { param: "pts" } }],
-            mark: "bar",
-            encoding: {
-              x: {
-                field: "sales_amount",
-                type: "quantitative",
-                aggregate: "sum",
-                axis: { title: "Total Sales (millions)" },
-              },
-              y: {
-                field: "platform",
-                type: "nominal",
-                sort: "-x",
-                axis: { title: "Platform" },
-              },
+              // color: {
+              //   condition: {
+              //     param: "hover",
+              //     value: "steelblue",
+              //   },
+              //   value: "green",
+              // },
             },
           },
         ],
@@ -58,48 +62,49 @@ export const W3Visualization1 = createClassFromSpec({
         height: 400,
         layer: [
           {
-            mark: { type: "bar", color: "#eee" },
             params: [
               {
-                name: "pts",
+                name: "hover",
                 select: {
                   type: "point",
                   encodings: ["y"],
                   on: "pointerover",
+                  // clear: "dblclick",
                   clear: "pointerout",
                 },
               },
-            ],
-            encoding: {
-              x: {
-                field: "sales_amount",
-                type: "quantitative",
-                aggregate: "sum",
-                axis: { title: "Total Sales (millions)" },
+              {
+                name: "click",
+                select: {
+                  type: "point",
+                  encodings: ["y"],
+                  on: "click",
+                  clear: "dblclick",
+                },
               },
+            ],
+            mark: { type: "bar", color: "#ddd" },
+            encoding: {
               y: {
                 field: "genre",
-                type: "nominal",
-                sort: "-x",
                 axis: { title: "Genre" },
+                // sort: { field: "sales_amount", order: "descending" },
               },
-              color: {
-                condition: {
-                  param: "pts",
-                  value: "steelblue",
-                },
-                value: "grey",
+              opacity: {
+                condition: [
+                  {
+                    param: "hover",
+                    value: 0.5,
+                    empty: false,
+                  },
+                ],
+                value: 0,
               },
             },
           },
           {
             mark: "bar",
-            // params: [
-            //   {
-            //     name: "pts",
-            //     select: { type: "point", encodings: ["y"] },
-            //   },
-            // ],
+
             encoding: {
               x: {
                 field: "sales_amount",
@@ -110,14 +115,17 @@ export const W3Visualization1 = createClassFromSpec({
               y: {
                 field: "genre",
                 type: "nominal",
-                sort: "-x",
+                // sort: "-x",
                 axis: { title: "Genre" },
               },
               color: {
-                condition: {
-                  param: "pts",
-                  value: "steelblue",
-                },
+                condition: [
+                  {
+                    param: "hover",
+                    value: "steelblue",
+                    empty: false,
+                  },
+                ],
                 value: "grey",
               },
             },
