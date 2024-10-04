@@ -9,7 +9,7 @@ export const W3Visualization1 = createClassFromSpec({
       url: "/data/week3/videogames_long.csv",
       format: { type: "csv" },
     },
-
+    width: "container",
     hconcat: [
       {
         width: 300,

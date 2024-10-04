@@ -24,7 +24,7 @@ export const ToggleGrid = () => {
         >
           {[...Array(8)].map((_, i) => (
             <motion.div
-              className="h-full bg-black/5"
+              className="h-full bg-foreground opacity-5"
               key={"toggle_grid__cell--" + i}
             />
           ))}

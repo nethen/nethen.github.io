@@ -49,14 +49,14 @@ export default function Home() {
         {width >= 1024 && isClient && (
           <span className="sticky top-28 block text-m-lg lg:text-r-lg">D</span>
         )}
-        <header className="col-span-full lg:col-span-6 lg:col-start-2 grid grid-cols-subgrid">
+        <section className="col-span-full lg:col-span-6 lg:col-start-2 grid grid-cols-subgrid">
           <hgroup className="col-span-full text-m-lg lg:text-r-lg">
             <h1>
               <span className="lg:hidden">D</span> is for Data
             </h1>
             <h2 className="text-midground">A series of visualizations</h2>
           </hgroup>
-        </header>
+        </section>
         <section
           className={clsx(
             "grid grid-cols-subgrid col-span-full gap-y-m2 lg:gap-y-r2"
