@@ -1,12 +1,7 @@
 import clsx from "clsx";
 import { grid } from "@/components/Grid/ToggleGrid";
 import { circOut, motion } from "framer-motion";
-import {
-  useWindowSize,
-  useIsClient,
-  useBoolean,
-  useEventListener,
-} from "usehooks-ts";
+import { useWindowSize, useIsClient, useBoolean } from "usehooks-ts";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -126,7 +121,10 @@ export const Navbar = () => {
           >
             <ul className="col-span-full grid grid-cols-subgrid">
               {[2, 3, 4].map((i) => (
-                <li className="col-span-4 lg:col-span-2">
+                <li
+                  className="col-span-4 lg:col-span-2"
+                  key={`nav-link--week${i}`}
+                >
                   <Link href={`/visualizations/week${i}`} passHref>
                     <motion.div
                       initial={false}

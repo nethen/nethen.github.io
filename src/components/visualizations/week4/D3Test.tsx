@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import { useEffect } from "react";
-import { DSVRowString } from "d3";
-import { platform } from "os";
+// import { DSVRowString } from "d3";
+// import { platform } from "os";
 
 export const D3Test = () => {
   useEffect(() => {
@@ -54,10 +54,10 @@ export const D3Test = () => {
     ];
 
     const xScale = d3.scaleLinear().domain([0, 4500]).range([0, 640]);
-    const yScale = d3
-      .scaleBand()
-      .domain(dataset.map((d) => d.platform))
-      .range([0, 480]);
+    // const yScale = d3
+    //   .scaleBand()
+    //   .domain(dataset.map((d) => d.platform))
+    //   .range([0, 480]);
 
     svg
       .selectAll("rect")

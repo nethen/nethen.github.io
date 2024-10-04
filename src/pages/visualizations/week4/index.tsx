@@ -6,10 +6,6 @@ import Link from "next/link";
 import { Figure } from "@/components/Layout/Figure";
 // import { useEffect } from "react";
 // import { useLenis } from "lenis/react";
-import { W3Visualization1 } from "@/components/visualizations/week3/W3Visualization1";
-import { W3Visualization2 } from "@/components/visualizations/week3/W3Visualization2";
-import { W3Visualization3 } from "@/components/visualizations/week3/W3Visualization3";
-import { W3Visualization4 } from "@/components/visualizations/week3/W3Visualization4";
 import D3Test from "@/components/visualizations/week4/D3Test";
 
 export default function Visualizations() {

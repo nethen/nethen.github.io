@@ -206,7 +206,7 @@ export default function Visualizations() {
               Hover over each publisher to see their market share
             </figcaption>
             <p className="text-midground absolute bottom-r2 left-r2 text-[0.5em]">
-              Note: "Other" category is broken.
+              Note: &quot;Other&quot; category is broken.
             </p>
           </Figure>
 
