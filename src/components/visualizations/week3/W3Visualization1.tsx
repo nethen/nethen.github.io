@@ -9,44 +9,55 @@ export const W3Visualization1 = createClassFromSpec({
       url: "/data/week3/videogames_long.csv",
       format: { type: "csv" },
     },
-    width: "container",
+    // width: "container",
     hconcat: [
       {
         width: 300,
         height: 400,
+        encoding: {
+          x: {
+            field: "sales_amount",
+            type: "quantitative",
+            aggregate: "sum",
+            stack: true,
+            axis: { title: "Total Sales (millions)" },
+          },
+          y: {
+            field: "platform",
+            type: "nominal",
+            sort: "-x",
+            axis: { title: "Platform" },
+          },
+        },
+        transform: [
+          {
+            filter: {
+              param: "hover",
+            },
+          },
+        ],
 
         layer: [
           {
-            transform: [
-              {
-                filter: {
-                  // or: [
-                  //   { param: "hover" },
-                  //   {
-                  //     and: [{ param: "click" }, { not: { param: "hover" } }],
-                  //   },
-                  // ],
-                  param: "hover",
-                },
-              },
-            ],
             mark: "bar",
             encoding: {
-              x: {
-                field: "sales_amount",
-                type: "quantitative",
-                // scale: {
-                //   type: "linear",
-                // },
-                aggregate: "sum",
-                axis: { title: "Total Sales (millions)" },
+              opacity: {
+                condition: [
+                  {
+                    param: "hover",
+                    value: 1,
+                  },
+                ],
+                value: 0,
               },
-              y: {
-                field: "platform",
-                type: "nominal",
-                sort: "-x",
-                axis: { title: "Platform" },
+              color: {
+                value: "grey",
               },
+            },
+          },
+          {
+            mark: "bar",
+            encoding: {
               color: {
                 condition: {
                   param: "hover",
@@ -57,6 +68,16 @@ export const W3Visualization1 = createClassFromSpec({
                   },
                 },
                 value: "grey",
+              },
+              opacity: {
+                condition: [
+                  {
+                    param: "hover",
+                    value: 1,
+                    empty: false,
+                  },
+                ],
+                value: 0,
               },
             },
           },

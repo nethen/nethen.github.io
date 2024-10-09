@@ -15,38 +15,53 @@ export const W3Visualization3 = createClassFromSpec({
         width: 300,
         height: 400,
 
+        transform: [
+          {
+            filter: "datum.sales_amount > 0",
+          },
+          {
+            filter: { param: "hover" },
+          },
+        ],
+
+        encoding: {
+          x: {
+            field: "sales_amount",
+            type: "quantitative",
+            aggregate: "sum",
+            stack: true,
+            axis: { title: "Total Sales (millions)" },
+          },
+          y: {
+            field: "platform",
+            type: "nominal",
+            sort: "-x",
+            axis: { title: "Platform" },
+          },
+        },
+
         layer: [
           {
-            transform: [
-              {
-                filter: {
-                  or: [
-                    { param: "hover" },
-                    // {
-                    //   param: "click",
-                    // },
-                  ],
-                  // param: "hover",
-                },
-              },
-            ],
             mark: "bar",
             encoding: {
-              x: {
-                field: "sales_amount",
-                type: "quantitative",
-                aggregate: "sum",
-                axis: { title: "Total Sales (millions)" },
-                // scale: {
-                //   type: "linear",
-                // },
+              color: {
+                value: "grey",
               },
-              y: {
-                field: "platform",
-                type: "nominal",
-                sort: "-x",
-                axis: { title: "Platform" },
+              opacity: {
+                condition: [
+                  {
+                    param: "hover",
+                    value: 1,
+                    // empty: false,
+                  },
+                ],
+                value: 0,
               },
+            },
+          },
+          {
+            mark: "bar",
+            encoding: {
               color: {
                 condition: {
                   param: "hover",
@@ -63,47 +78,10 @@ export const W3Visualization3 = createClassFromSpec({
                     empty: false,
                   },
                 ],
-                value: 0.5,
+                value: 0,
               },
-              // color: {
-              //   condition: {
-              //     param: "hover",
-              //     value: "grey",
-              //     // value: "steelblue",
-              //   },
-              //   // value: "grey",
-              //   // value: "green",
-              // },
             },
           },
-          // {
-          //   mark: "bar",
-          //   encoding: {
-          //     x: {
-          //       field: "sales_amount",
-          //       type: "quantitative",
-          //       aggregate: "sum",
-          //       axis: { title: "Total Sales (millions)" },
-          //     },
-          //     y: {
-          //       field: "platform",
-          //       type: "nominal",
-          //       sort: "-x",
-          //       axis: { title: "Platform" },
-          //     },
-
-          //     opacity: {
-          //       condition: [
-          //         {
-          //           param: "hover",
-          //           value: 0,
-          //           empty: false,
-          //         },
-          //       ],
-          //       value: 1,
-          //     },
-          //   },
-          // },
         ],
       },
       {
