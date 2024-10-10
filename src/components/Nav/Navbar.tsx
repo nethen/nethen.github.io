@@ -55,36 +55,64 @@ export const Navbar = () => {
             </Link>
           </li>
           <li className="col-span-4 lg:col-span-2">
-            <Link href="/visualizations" passHref>
-              <motion.div
-                initial={false}
-                animate="animate"
-                whileHover="hover"
-                onHoverStart={() => {
-                  hasSelection.setTrue();
-                  active.setTrue();
-                }}
-                onHoverEnd={() => {
-                  hasSelection.setFalse();
-                  // active.setFalse();
-                }}
+            {/* <Link href="/visualizations" passHref> */}
+            <motion.div
+              initial={false}
+              animate="animate"
+              whileHover="hover"
+              onClick={() => active.toggle()}
+              onHoverStart={() => {
+                hasSelection.setTrue();
+              }}
+              onHoverEnd={() => {
+                hasSelection.setFalse();
+                // active.setFalse();
+              }}
+              variants={{
+                initial: { color: "var(--midground)" },
+                animate: {
+                  color:
+                    pathname == "/visualizations"
+                      ? hasSelection.value
+                        ? "var(--midground)"
+                        : "var(--foreground)"
+                      : "var(--midground)",
+                },
+                hover: { color: "var(--foreground)" },
+              }}
+              transition={{ ease: circOut }}
+              className="cursor-pointer flex"
+            >
+              Visualizations
+              <motion.svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
                 variants={{
-                  initial: { color: "var(--midground)" },
                   animate: {
-                    color:
-                      pathname == "/visualizations"
-                        ? hasSelection.value
-                          ? "var(--midground)"
-                          : "var(--foreground)"
-                        : "var(--midground)",
+                    rotate: active.value ? 180 : 0,
                   },
-                  hover: { color: "var(--foreground)" },
                 }}
-                transition={{ ease: circOut }}
               >
-                Visualizations
-              </motion.div>
-            </Link>
+                <motion.path
+                  variants={{
+                    initial: { fill: "var(--midground)" },
+                    animate: {
+                      fill:
+                        pathname == "/visualizations"
+                          ? hasSelection.value
+                            ? "var(--midground)"
+                            : "var(--foreground)"
+                          : "var(--midground)",
+                    },
+                    hover: { fill: "var(--foreground)" },
+                  }}
+                  d="M7.41 8.58L12 13.17L16.59 8.58L18 10L12 16L6 10L7.41 8.58Z"
+                />
+              </motion.svg>
+            </motion.div>
+            {/* </Link> */}
           </li>
           {width >= 1024 && isClient && (
             <li className="lg:-col-start-1 lg:text-right">
@@ -107,10 +135,6 @@ export const Navbar = () => {
             borderBottomColor: active.value
               ? "var(--midground)"
               : "var(--background)",
-          }}
-          onHoverEnd={() => {
-            hasSelection.setFalse();
-            active.setFalse();
           }}
         >
           <motion.div

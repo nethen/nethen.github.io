@@ -12,155 +12,132 @@ export const W3Visualization4 = createClassFromSpec({
 
     hconcat: [
       {
-        width: 200,
+        width: 400,
+        height: 400,
         layer: [
           {
             transform: [
-              // {
-              //   aggregate: [
-              //     {
-              //       op: "sum",
-              //       field: "sales_amount",
-              //       as: "sales_amount_relative",
-              //     },
-              //   ],
-              //   groupby: ["genre", "publisher", "sales_amount"],
-              // },
-
               {
-                filter: {
-                  param: "select",
-                },
+                aggregate: [
+                  { op: "mean", field: "global_sales", as: "global_sales" },
+                ],
+                groupby: ["publisher", "genre", "year", "name"],
+              },
+              {
+                window: [{ op: "rank", as: "rank" }],
+                sort: [{ field: "global_sales", order: "descending" }],
+              },
+              {
+                filter: "datum.rank <= 100",
               },
             ],
-            mark: { type: "bar" },
+            mark: { type: "circle" },
             encoding: {
-              x: {
-                field: "sales_amount",
-                type: "quantitative",
-                aggregate: "sum",
-              },
               y: {
                 field: "genre",
-                sort: "-x",
+                type: "nominal",
+                title: "Genre",
+              },
+              x: {
+                field: "year",
+                scale: {
+                  type: "time",
+                },
+                title: "Year",
+              },
+              size: {
+                field: "global_sales",
+                type: "quantitative",
+                title: "Global Sales (millions)",
               },
 
               color: {
-                condition: {
-                  param: "select",
-                  field: "publisher",
-                  scale: {
-                    scheme: "category20",
-                    domain: [
-                      "Activision",
-                      "Electronic Arts",
-                      "Konami Digital Entertainment",
-                      "Namco Bandai Games",
-                      "Nintendo",
-                      "Others",
-                      "Sega",
-                      "Sony Computer Entertainment",
-                      "THQ",
-                      "Take-Two Interactive",
-                      "Ubisoft",
-                    ],
-                  },
-                  empty: false,
+                title: "Publisher",
+                field: "publisher",
+                sort: { op: "sum", field: "global_sales", order: "descending" },
+                scale: {
+                  scheme: "category20",
                 },
-                value: "grey",
               },
+              opacity: {
+                condition: {
+                  param: "hover",
+                  value: 1,
+                },
+                value: 0.1,
+              },
+
+              tooltip: [
+                { field: "name", title: "Game", type: "nominal" },
+                { field: "publisher", title: "Publisher", type: "nominal" },
+              ],
             },
           },
         ],
       },
       {
-        width: 200,
+        width: 300,
+        height: 400,
         params: [
           {
-            name: "select",
+            name: "hover",
             select: {
               type: "point",
-              // encodings: ["color"],
               fields: ["publisher"],
               on: "mouseover",
               clear: "mouseout",
             },
           },
         ],
+        layer: [
+          {
+            transform: [
+              {
+                aggregate: [
+                  { op: "mean", field: "global_sales", as: "global_sales" },
+                ],
+                groupby: ["publisher", "genre", "year", "name"],
+              },
+              {
+                window: [{ op: "rank", as: "rank" }],
+                sort: [{ field: "global_sales", order: "descending" }],
+              },
+              {
+                filter: "datum.rank <= 100",
+              },
+            ],
+            mark: { type: "arc" },
+            encoding: {
+              theta: {
+                field: "global_sales",
+                type: "quantitative",
+                title: "Global Sales (millions)",
+                aggregate: "sum",
+                // stack: true,
+                stack: "normalize",
+              },
 
-        transform: [
-          // {
-          //   joinaggregate: [
-          //     { op: "sum", field: "sales_amount", as: "sales_amount_total" },
-          //   ],
-          // },
-          {
-            aggregate: [
-              { op: "sum", field: "sales_amount", as: "sales_amount" },
-            ],
-            groupby: ["publisher"],
-          },
-          {
-            window: [{ op: "rank", as: "rank" }],
-            sort: [{ field: "sales_amount", order: "descending" }],
-          },
-          {
-            calculate: "datum.rank <= 10 ? datum.publisher : 'Others'",
-            as: "publisher",
-          },
-          {
-            aggregate: [
-              { op: "sum", field: "sales_amount", as: "sales_amount" },
-            ],
-            groupby: ["publisher"],
-          },
-          {
-            joinaggregate: [
-              { op: "sum", field: "sales_amount", as: "sales_amount_total" },
-            ],
-          },
-          {
-            calculate:
-              "round(datum.sales_amount / datum.sales_amount_total * 10000) / 100",
-            as: "sales_amount_relative",
+              color: {
+                title: "Publisher",
+                field: "publisher",
+                sort: { op: "sum", field: "global_sales", order: "descending" },
+              },
+              opacity: {
+                condition: { param: "hover", value: 1 }, // 1
+                value: 0.5,
+              },
+              tooltip: [
+                { field: "publisher", title: "Publisher", type: "nominal" },
+                {
+                  field: "global_sales",
+                  title: "Global Sales (millions)",
+                  type: "quantitative",
+                  aggregate: "sum",
+                },
+              ],
+            },
           },
         ],
-        mark: { type: "arc" },
-        encoding: {
-          theta: {
-            field: "sales_amount",
-            type: "quantitative",
-            stack: "normalize",
-            title: "Market Share",
-          },
-          color: {
-            field: "publisher",
-            type: "nominal",
-            scale: {
-              scheme: "category20",
-            },
-            title: "Publisher",
-          },
-          opacity: {
-            condition: {
-              param: "select",
-              value: 1,
-            },
-            value: 0.2,
-          },
-          tooltip: [
-            {
-              field: "publisher",
-              title: "Publisher",
-              type: "nominal",
-            },
-            {
-              field: "sales_amount_relative",
-              title: "Market Share (%)",
-              type: "quantitative",
-            },
-          ],
-        },
       },
     ],
   },
