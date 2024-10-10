@@ -1,4 +1,3 @@
-import { group } from "console";
 import { createClassFromSpec } from "react-vega";
 
 export const W3Visualization4 = createClassFromSpec({
@@ -65,7 +64,7 @@ export const W3Visualization4 = createClassFromSpec({
                   param: "hover",
                   value: 1,
                 },
-                value: 0.1,
+                value: 0.05,
               },
 
               tooltip: [
