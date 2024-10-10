@@ -209,15 +209,15 @@ export default function Visualizations() {
           </Figure>
 
           <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
-            Over time, Nintendo's prevalence of top releases in a genre wavers.
-            For instance, in the 2000s, Take-Two Interactive and Microsoft take
-            over the action and shooter genres respectively with their GTA and
-            Halo series&mdash;with Activision competing against Halo with Call
-            of Duty in the 2010s.
+            Over time, Nintendo&apos;s prevalence of top releases in a genre
+            wavers. For instance, in the 2000s, Take-Two Interactive and
+            Microsoft take over the action and shooter genres respectively with
+            their GTA and Halo series&mdash;with Activision competing against
+            Halo with Call of Duty in the 2010s.
           </p>
           <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
             Despite this battle of attention with more publishers creating more
-            top selling games, Nintendo's dominance in the platformer and
+            top selling games, Nintendo&apos;s dominance in the platformer and
             role-playing genres remain.
           </p>
         </section>
