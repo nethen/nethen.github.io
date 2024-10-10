@@ -1,3 +1,4 @@
+import { group } from "console";
 import { createClassFromSpec } from "react-vega";
 
 export const W3Visualization4 = createClassFromSpec({
