@@ -65,7 +65,7 @@ export const W3Visualization4 = createClassFromSpec({
                   param: "hover",
                   value: 1,
                 },
-                value: 0.1,
+                value: 0.05,
               },
 
               tooltip: [

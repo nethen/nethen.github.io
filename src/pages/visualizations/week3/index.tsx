@@ -187,7 +187,7 @@ export default function Visualizations() {
           className="col-span-full lg:col-span-6 lg:col-start-2 text-m-lg lg:text-r-lg scroll-m-28"
           id="4"
         >
-          <h2>Breaking Down the Top Ten</h2>
+          <h2>Breaking Down the Top Hundred Games</h2>
         </hgroup>
         <section
           className={clsx(
@@ -195,27 +195,30 @@ export default function Visualizations() {
           )}
         >
           <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
-            Using the transform function, each publisher was ranked by their
-            volume of games sold. It can be observed that the top 10 publishers
-            do make up majority of sales (~70%), with Nintendo taking up a
-            relatively larger portion.
+            Using the transform function, each game was ranked by their volume
+            of games sold&mdash;the top hundred of which are recorded based on
+            their year of sales and genre, where larger points represent higher
+            average global sales. Across all of these titles, a significant
+            number of them were published by Nintendo across time and genre.
           </p>
           <Figure>
             <W3Visualization4 />
             <figcaption className="text-midground">
-              Hover over each publisher to see their market share
+              Hover over each publisher to see their total sales
             </figcaption>
-            <p className="text-midground absolute bottom-r2 left-r2 text-[0.5em]">
-              Note: &quot;Other&quot; category is broken.
-            </p>
           </Figure>
 
           <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
-            When focusing on each publisher, the distribution of sales between
-            genres is not even&mdash;each specializing in specific types such as
-            Nintendo leaning towards platformers and role-playing games. Because
-            of this variance in &quot;top genre&quot;, each publisher unevenly
-            contributes to the total sales per genre.
+            Over time, Nintendo's prevalence of top releases in a genre wavers.
+            For instance, in the 2000s, Take-Two Interactive and Microsoft take
+            over the action and shooter genres respectively with their GTA and
+            Halo series&mdash;with Activision competing against Halo with Call
+            of Duty in the 2010s.
+          </p>
+          <p className="col-span-full lg:col-start-2 lg:col-span-4 2xl:col-start-2 2xl:col-span-3 4xl:col-start-2 4xl:col-span-2 text-midground">
+            Despite this battle of attention with more publishers creating more
+            top selling games, Nintendo's dominance in the platformer and
+            role-playing genres remain.
           </p>
         </section>
       </article>
