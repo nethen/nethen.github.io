@@ -7,11 +7,13 @@ import { Figure } from "@/components/Layout/Figure";
 // import { useEffect } from "react";
 // import { useLenis } from "lenis/react";
 import D3Test from "@/components/visualizations/week4/D3Test";
+import { csv } from "d3";
+import useFetchData from "@/components/visualizations/d3/useFetchData";
 
-export default function Visualizations() {
+export default function Visualizations({ data }: { data: any }) {
   const { width = 0 } = useWindowSize();
   const isClient = useIsClient();
-
+  // const data = csv("/data/week3/videogames_long.csv");
   // const lenis = useLenis();
 
   // useEffect(() => {
@@ -84,3 +86,13 @@ export default function Visualizations() {
     </>
   );
 }
+
+// export const getStaticProps = async () => {
+//   const data = await csv("/data/week3/videogames_long.csv");
+//   console.log(data);
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// };
