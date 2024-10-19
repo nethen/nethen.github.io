@@ -79,7 +79,7 @@ export default function Visualizations({ data }: { data: any }) {
           )}
         >
           <Figure className="tracking-normal">
-            <D3Test />
+            <D3Test data={data} />
           </Figure>
         </section>
       </article>
@@ -87,12 +87,19 @@ export default function Visualizations({ data }: { data: any }) {
   );
 }
 
-// export const getStaticProps = async () => {
-//   const data = await csv("/data/week3/videogames_long.csv");
-//   console.log(data);
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// };
+export const getStaticProps = async () => {
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? process.env.NEXT_PUBLIC_SITE_URL // Set this to your production base URL in .env
+      : "http://localhost:3000";
+
+  const dataUrl = `${baseUrl}/data/week3/videogames_wide.csv`;
+
+  const data = await csv(dataUrl);
+  // console.log(data);
+  return {
+    props: {
+      data,
+    },
+  };
+};
